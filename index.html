@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="fr-CA">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pierre-Dominic Simard</title>
+    <meta
+      name="description"
+      content="Services d'informatique: developpement d'applications web et mobiles."
+    />
+    <style>
+      :root {
+        --bg: #0b1020;
+        --card: #121a33;
+        --text: #eef1ff;
+        --muted: #b8c0d9;
+        --accent: #4fd1c5;
+      }
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+        background: radial-gradient(1200px 600px at 20% 0%, #17224a, var(--bg));
+        color: var(--text);
+      }
+      main {
+        max-width: 920px;
+        margin: 0 auto;
+        padding: 56px 18px;
+      }
+      .card {
+        background: rgba(18, 26, 51, 0.92);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        padding: 26px;
+      }
+      h1 {
+        margin: 0 0 10px;
+        font-size: 44px;
+        letter-spacing: -0.02em;
+      }
+      h2 {
+        margin: 18px 0 8px;
+        font-size: 18px;
+      }
+      p,
+      li {
+        color: var(--muted);
+        line-height: 1.6;
+      }
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .meta {
+        font-size: 14px;
+        color: rgba(184, 192, 217, 0.9);
+      }
+      .split {
+        display: grid;
+        gap: 18px;
+        grid-template-columns: 1fr;
+      }
+      @media (min-width: 860px) {
+        .split {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      .pill {
+        display: inline-block;
+        padding: 6px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: rgba(238, 241, 255, 0.9);
+        font-size: 13px;
+      }
+      .small {
+        font-size: 14px;
+      }
+      .hr {
+        height: 1px;
+        background: rgba(255, 255, 255, 0.08);
+        margin: 22px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="card">
+        <div class="pill">Quebec • Sole proprietorship</div>
+        <h1>Pierre-Dominic Simard</h1>
+
+        <p class="small">
+          Services d'informatique: developpement d'applications web et mobiles,
+          maintenance et support logiciel.
+        </p>
+
+        <div class="split">
+          <div>
+            <h2>Contact</h2>
+            <p>Email: <a href="mailto:pierredominic.s@gmail.com">pierredominic.s@gmail.com</a></p>
+            <!-- Optional: add a business phone number if you want it public. -->
+            <!-- <p>Telephone: +1 XXX-XXX-XXXX</p> -->
+          </div>
+
+          <div>
+            <h2>Produits</h2>
+            <ul>
+              <li>Digit Span Trainer (Android)</li>
+            </ul>
+            <p>
+              <a href="./privacy.html">Politique de confidentialite</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="hr"></div>
+
+        <p class="meta">
+          Legal name (REQ): <span>Simard, Pierre-Dominic</span>
+        </p>
+        <p class="meta">Last updated: 2026-02-13</p>
+      </div>
+    </main>
+  </body>
+</html>
+
