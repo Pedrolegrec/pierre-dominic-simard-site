@@ -113,17 +113,18 @@ body::after {
 }
 
 .lang a {
-  color: rgba(245, 247, 255, 0.9);
+  color: rgba(245, 247, 255, 0.6);
   text-decoration: none;
-  border-bottom: 1px solid transparent;
+  transition: color 150ms ease;
 }
 
 .lang a:hover {
-  border-bottom-color: rgba(245, 247, 255, 0.5);
+  color: var(--ink);
 }
 
 .lang .active {
-  color: rgba(245, 247, 255, 0.95);
+  color: var(--accent);
+  font-weight: 500;
 }
 
 .hero {
@@ -164,25 +165,27 @@ body::after {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 12px 14px;
+  padding: 12px 20px;
   border-radius: 14px;
-  border: 1px solid rgba(247, 59, 32, 0.35);
-  background: rgba(247, 59, 32, 0.12);
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.05);
   color: rgba(245, 247, 255, 0.98);
   text-decoration: none;
   font-weight: 500;
   letter-spacing: 0.01em;
-  transition: transform 150ms ease, border-color 150ms ease, background 150ms ease;
+  transition: all 150ms ease;
 }
 
-.btn:hover {
+.btn-primary {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn-primary:hover {
   transform: translateY(-1px);
-  border-color: rgba(247, 59, 32, 0.6);
-  background: rgba(247, 59, 32, 0.16);
-}
-
-.btn:active {
-  transform: translateY(0);
+  filter: brightness(1.1);
+  box-shadow: 0 4px 20px rgba(247, 59, 32, 0.3);
 }
 
 .btn-ghost {
@@ -193,6 +196,39 @@ body::after {
 .btn-ghost:hover {
   border-color: rgba(245, 247, 255, 0.22);
   background: rgba(255, 255, 255, 0.06);
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.service-card {
+  padding: 20px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--line);
+  transition: border-color 150ms ease;
+}
+
+.service-card:hover {
+  border-color: rgba(245, 247, 255, 0.2);
+}
+
+.service-card h3 {
+  margin: 0 0 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.service-card p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.5;
 }
 
 .grid {
