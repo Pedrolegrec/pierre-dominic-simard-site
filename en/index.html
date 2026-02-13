@@ -28,8 +28,32 @@
 
     <link rel="stylesheet" href="../site.css" />
     <script defer src="../site.js"></script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Pierre-Dominic Simard",
+      "jobTitle": "Web & Mobile Developer",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Quebec",
+        "addressRegion": "QC",
+        "addressCountry": "CA"
+      },
+      "email": "pierredominic.s@gmail.com",
+      "url": "https://pedrolegrec.github.io/pierre-dominic-simard-site/en/",
+      "sameAs": [
+        "https://github.com/pedrolegrec",
+        "https://linkedin.com"
+      ],
+      "knowsAbout": ["React", "Node.js", "TypeScript", "iOS", "Android", "Mobile Development", "Web Development"]
+    }
+    </script>
   </head>
   <body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
     <header class="topbar">
       <div class="pill">
         <span class="pill-dot"></span>
@@ -43,7 +67,7 @@
       </div>
     </header>
 
-    <main class="wrap">
+    <main class="wrap" id="main-content">
       <section class="hero">
         <h1 data-split="chars">Pierre-Dominic Simard</h1>
         <p class="lead">
@@ -52,18 +76,41 @@
 
         <div class="service-grid">
           <div class="service-card">
+            <div class="service-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+            </div>
             <h3>Web Applications</h3>
             <p>Building modern platforms with React, Node.js, and TypeScript.</p>
           </div>
           <div class="service-card">
+            <div class="service-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+            </div>
             <h3>Mobile Applications</h3>
             <p>Creating high-performance native and cross-platform apps (iOS & Android).</p>
           </div>
           <div class="service-card">
+            <div class="service-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+            </div>
             <h3>Maintenance & Support</h3>
             <p>Optimization, debugging, and evolution of your existing systems.</p>
           </div>
         </div>
+
+        <section class="skills">
+          <h2>Technologies</h2>
+          <div class="skill-badges">
+            <span class="skill-badge">React</span>
+            <span class="skill-badge">Node.js</span>
+            <span class="skill-badge">TypeScript</span>
+            <span class="skill-badge">JavaScript</span>
+            <span class="skill-badge">iOS</span>
+            <span class="skill-badge">Android</span>
+            <span class="skill-badge">React Native</span>
+            <span class="skill-badge">Git</span>
+          </div>
+        </section>
 
         <div class="cta">
           <a class="btn btn-primary" href="mailto:pierredominic.s@gmail.com">Email me</a>
