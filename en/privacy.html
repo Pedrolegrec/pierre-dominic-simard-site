@@ -4,123 +4,95 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Privacy Policy - Pierre-Dominic Simard</title>
-    <style>
-      :root {
-        --bg: #0b1020;
-        --card: #121a33;
-        --text: #eef1ff;
-        --muted: #b8c0d9;
-        --accent: #4fd1c5;
-      }
-      body {
-        margin: 0;
-        font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
-        background: radial-gradient(1200px 600px at 20% 0%, #17224a, var(--bg));
-        color: var(--text);
-      }
-      main {
-        max-width: 920px;
-        margin: 0 auto;
-        padding: 56px 18px;
-      }
-      .card {
-        background: rgba(18, 26, 51, 0.92);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 16px;
-        padding: 26px;
-      }
-      h1 {
-        margin: 0 0 10px;
-        font-size: 34px;
-        letter-spacing: -0.02em;
-      }
-      h2 {
-        margin: 18px 0 8px;
-        font-size: 18px;
-      }
-      p,
-      li {
-        color: var(--muted);
-        line-height: 1.6;
-      }
-      a {
-        color: var(--accent);
-        text-decoration: none;
-      }
-      a:hover {
-        text-decoration: underline;
-      }
-      .meta {
-        font-size: 14px;
-        color: rgba(184, 192, 217, 0.9);
-      }
-      .hr {
-        height: 1px;
-        background: rgba(255, 255, 255, 0.08);
-        margin: 22px 0;
-      }
-      .lang {
-        float: right;
-        font-size: 13px;
-        color: rgba(184, 192, 217, 0.9);
-      }
-      .lang a {
-        color: rgba(238, 241, 255, 0.9);
-      }
-    </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../site.css" />
+    <script defer src="../site.js"></script>
   </head>
   <body>
-    <main>
-      <div class="card">
-        <div class="lang">
-          <a href="../privacy.html">Français</a> | <strong>English</strong>
-        </div>
-        <h1>Privacy Policy</h1>
-        <p class="meta">Effective date: 2026-02-13</p>
-
-        <p>
-          This privacy policy applies to mobile applications and related services
-          published by Pierre-Dominic Simard.
-        </p>
-
-        <h2>Data we collect</h2>
-        <p>
-          Our apps do not intentionally collect personal information and do not
-          send personal information to our servers.
-        </p>
-
-        <h2>Local storage</h2>
-        <p>
-          If an app stores preferences (e.g. settings), those data remain on your
-          device.
-        </p>
-
-        <h2>Device features</h2>
-        <p>
-          Some apps may use device features (for example: Text-to-Speech) to
-          provide functionality. These features run on your device. We do not
-          receive the content processed by those features.
-        </p>
-
-        <h2>Third-party services</h2>
-        <p>
-          Our apps may be distributed via Google Play. Google may collect certain
-          information (e.g. diagnostics) under its own policies. We do not
-          control data collection performed by Google.
-        </p>
-
-        <h2>Contact</h2>
-        <p>
-          If you have questions, contact:
-          <a href="mailto:pierredominic.s@gmail.com">pierredominic.s@gmail.com</a>
-        </p>
-
-        <div class="hr"></div>
-
-        <p class="meta">
-          <a href="./index.html">Back to site</a>
-        </p>
+    <header class="topbar">
+      <div class="pill">
+        <span class="pill-dot"></span>
+        <span>Privacy policy</span>
       </div>
+
+      <div class="lang" aria-label="Language">
+        <span class="active">English</span>
+        <span aria-hidden="true">|</span>
+        <a href="../privacy.html">Français</a>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <section class="hero">
+        <h1 data-split="chars">Privacy policy</h1>
+        <p class="lead">Effective date: 2026-02-13</p>
+        <div class="cta">
+          <a class="btn btn-ghost" href="./index.html">Back to site</a>
+        </div>
+      </section>
+
+      <section class="grid" aria-label="Policy">
+        <div class="card">
+          <h2>Scope</h2>
+          <p>
+            This privacy policy applies to mobile applications and related services
+            published by Pierre-Dominic Simard.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>Contact</h2>
+          <p>
+            Questions:
+            <a href="mailto:pierredominic.s@gmail.com">pierredominic.s@gmail.com</a>
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>Data we collect</h2>
+          <p>
+            Our apps do not intentionally collect personal information and do not
+            send personal information to our servers.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>Local storage</h2>
+          <p>
+            If an app stores preferences (e.g. settings), those data remain on your
+            device.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>Device features</h2>
+          <p>
+            Some apps may use device features (for example: Text-to-Speech) to
+            provide functionality. These features run on your device. We do not
+            receive the content processed by those features.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>Third-party services</h2>
+          <p>
+            Our apps may be distributed via Google Play. Google may collect certain
+            information (e.g. diagnostics) under its own policies. We do not control
+            data collection performed by Google.
+          </p>
+        </div>
+      </section>
+
+      <footer class="foot">
+        This page is a public privacy policy with a stable URL.
+      </footer>
     </main>
   </body>
 </html>
