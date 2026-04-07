@@ -37,7 +37,7 @@
 
 html,
 body {
-  height: 100%;
+  min-height: 100%;
 }
 
 body {
@@ -49,6 +49,9 @@ body {
     radial-gradient(900px 700px at 95% 0%, rgba(247, 59, 32, 0.22) 0%, transparent 55%),
     radial-gradient(900px 700px at 30% 110%, rgba(79, 209, 197, 0.14) 0%, transparent 55%),
     linear-gradient(180deg, var(--bg0), var(--bg1));
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 body::before {
