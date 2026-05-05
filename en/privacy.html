@@ -33,7 +33,7 @@
     <main class="wrap">
       <section class="hero">
         <h1 data-split="chars">Privacy policy</h1>
-        <p class="lead">Effective date: 2026-04-07</p>
+        <p class="lead">Effective date: 2026-05-05</p>
         <div class="cta">
           <a class="btn btn-ghost" href="./index.html">Back to site</a>
         </div>
@@ -53,14 +53,6 @@
           <p>
             Questions:
             <a href="mailto:pierdo.dev@gmail.com">pierdo.dev@gmail.com</a>
-          </p>
-        </div>
-
-        <div class="card">
-          <h2>Data we collect</h2>
-          <p>
-            Our apps do not intentionally collect personal information and do not
-            send personal information to our servers.
           </p>
         </div>
 
@@ -91,12 +83,73 @@
         </div>
 
         <div class="card">
-          <h2>Third-party services</h2>
+          <h2>Digit Span Trainer</h2>
           <p>
-            Our apps may be distributed via Google Play. Google may collect certain
-            information (e.g. diagnostics) under its own policies. We do not control
-            data collection performed by Google.
+            <strong>Local-only data.</strong> Training rounds, preferences, skin
+            unlocks, and tutorial progress are stored on your device and don't
+            leave it on their own.
           </p>
+          <p>
+            <strong>Sign-in (optional).</strong> If you sign in with Google, we
+            receive a stable Google account identifier used to recognize you across
+            devices and associate purchases with your account. We don't read your
+            name, email, or profile picture.
+          </p>
+          <p>
+            <strong>AI Coach (Pro feature).</strong> When you tap an AI Coach button
+            as a Pro user, a digest of your recent training stats (best span, recent
+            accuracy per mode, weekly round counts) is sent over HTTPS to our
+            backend to generate a personalized response. We don't share this data
+            with advertisers and we don't sell it.
+          </p>
+          <p>
+            <strong>Billing.</strong> Pro subscriptions are processed by Google
+            Play; subscription state is mirrored through RevenueCat (see
+            sub-processors below).
+          </p>
+          <p>
+            <strong>What we never collect or transmit:</strong> contacts, photos,
+            location, microphone, camera, browsing activity, contents of other apps.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>Dial-In</h2>
+          <p>
+            Dial-In is offline-first. The app stores your shot logs, beans, and
+            preferences on your device and does not transmit data to our servers.
+            CSV export writes a temporary file and shares it via the system share
+            sheet — no upload.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>Sub-processors</h2>
+          <p>
+            The following third-party services receive limited data when you use
+            Digit Span Trainer's AI Coach or sign in. Dial-In does not use any of
+            these.
+          </p>
+          <ul>
+            <li>
+              <strong>Fireworks AI</strong> (United States) — runs the AI model that
+              generates Coach responses. Receives the training stats digest at the
+              time of each Coach tap. No persistent storage on their side.
+            </li>
+            <li>
+              <strong>Cloudflare Workers + KV</strong> — routes Coach requests and
+              caches daily Coach responses. Cache entries are keyed to your account
+              identifier and expire automatically (typically within 24 hours).
+            </li>
+            <li>
+              <strong>Google Sign-In</strong> — verifies your identity when you sign
+              in. We receive your Google account identifier only.
+            </li>
+            <li>
+              <strong>RevenueCat</strong> — manages Pro subscription state. Receives
+              a stable user identifier on purchase and restore events.
+            </li>
+          </ul>
         </div>
       </section>
 
