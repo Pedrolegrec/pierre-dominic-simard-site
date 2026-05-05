@@ -33,7 +33,7 @@
     <main class="wrap">
       <section class="hero">
         <h1 data-split="chars">Politique de confidentialité</h1>
-        <p class="lead">Date d'entrée en vigueur: 2026-04-07</p>
+        <p class="lead">Date d'entrée en vigueur : 2026-05-05</p>
         <div class="cta">
           <a class="btn btn-ghost" href="./index.html">Retour au site</a>
         </div>
@@ -51,23 +51,15 @@
         <div class="card">
           <h2>Contact</h2>
           <p>
-            Questions:
+            Questions :
             <a href="mailto:pierdo.dev@gmail.com">pierdo.dev@gmail.com</a>
-          </p>
-        </div>
-
-        <div class="card">
-          <h2>Données collectées</h2>
-          <p>
-            Nos applications ne collectent pas intentionnellement d'informations
-            personnelles et ne les envoient pas à nos serveurs.
           </p>
         </div>
 
         <div class="card">
           <h2>Stockage local</h2>
           <p>
-            Si une application enregistre des préférences (ex.: mode de jeu), ces
+            Si une application enregistre des préférences (ex. : mode de jeu), ces
             données restent sur votre appareil.
           </p>
         </div>
@@ -76,7 +68,7 @@
           <h2>Fonctions de l'appareil</h2>
           <p>
             Certaines applications peuvent utiliser des fonctions de votre appareil
-            (par exemple: la synthèse vocale / Text-to-Speech) pour fournir des
+            (par exemple : la synthèse vocale / Text-to-Speech) pour fournir des
             fonctionnalités. Ces fonctions sont exécutées sur votre appareil. Nous
             ne recevons pas le contenu traité par ces fonctions.
           </p>
@@ -85,7 +77,7 @@
         <div class="card">
           <h2>Exportation de données</h2>
           <p>
-            Certaines applications permettent d'exporter des données (ex.: fichiers
+            Certaines applications permettent d'exporter des données (ex. : fichiers
             CSV). Les fichiers exportés sont écrits dans un cache temporaire sur
             votre appareil et partagés via le menu de partage du système. Aucune
             donnée n'est envoyée à nos serveurs lors de l'exportation.
@@ -93,12 +85,82 @@
         </div>
 
         <div class="card">
-          <h2>Services tiers</h2>
+          <h2>Digit Span Trainer</h2>
           <p>
-            Nos applications peuvent être distribuées via Google Play. Google peut
-            collecter certaines informations (ex.: diagnostics) selon ses propres
-            politiques. Nous ne contrôlons pas la collecte effectuée par Google.
+            <strong>Données locales uniquement.</strong> Les rondes d'entraînement,
+            les préférences, les déverrouillages d'apparences et la progression du
+            tutoriel sont stockés sur votre appareil et ne le quittent pas d'eux-mêmes.
           </p>
+          <p>
+            <strong>Connexion (facultative).</strong> Si vous vous connectez avec
+            Google, nous recevons un identifiant de compte Google stable, utilisé
+            pour vous reconnaître entre vos appareils et associer vos achats à votre
+            compte. Nous ne lisons pas votre nom, votre courriel ni votre photo de
+            profil.
+          </p>
+          <p>
+            <strong>Coach IA (fonctionnalité Pro).</strong> Lorsque vous appuyez sur
+            un bouton du Coach IA en tant qu'utilisateur Pro, un résumé de vos
+            statistiques d'entraînement récentes (meilleure portée, précision
+            récente par mode, nombre de rondes hebdomadaires) est envoyé en HTTPS à
+            notre service afin de générer une réponse personnalisée. Nous ne
+            partageons pas ces données avec des annonceurs et nous ne les vendons
+            pas.
+          </p>
+          <p>
+            <strong>Facturation.</strong> Les abonnements Pro sont traités par
+            Google Play ; l'état de l'abonnement est synchronisé via RevenueCat
+            (voir la section Sous-traitants ci-dessous).
+          </p>
+          <p>
+            <strong>Ce que nous ne collectons jamais et ne transmettons jamais :</strong>
+            contacts, photos, position, microphone, caméra, activité de navigation,
+            contenu d'autres applications.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>Dial-In</h2>
+          <p>
+            Dial-In fonctionne d'abord hors ligne. L'application stocke vos journaux
+            d'extractions, vos cafés et vos préférences sur votre appareil et ne
+            transmet aucune donnée à nos serveurs. L'exportation CSV écrit un
+            fichier temporaire et le partage via le menu de partage du système —
+            aucun téléversement.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>Sous-traitants</h2>
+          <p>
+            Les services tiers suivants reçoivent des données limitées lorsque vous
+            utilisez le Coach IA de Digit Span Trainer ou que vous vous connectez.
+            Dial-In n'utilise aucun de ces services.
+          </p>
+          <ul>
+            <li>
+              <strong>Fireworks AI</strong> (États-Unis) — exécute le modèle d'IA
+              qui génère les réponses du Coach. Reçoit le résumé des statistiques
+              d'entraînement au moment où vous appuyez sur un bouton du Coach.
+              Aucun stockage persistant chez eux.
+            </li>
+            <li>
+              <strong>Cloudflare Workers + KV</strong> — achemine les requêtes du
+              Coach et met en cache les réponses quotidiennes. Les entrées du cache
+              sont liées à votre identifiant de compte et expirent automatiquement
+              (généralement en moins de 24 heures).
+            </li>
+            <li>
+              <strong>Google Sign-In</strong> — vérifie votre identité lorsque vous
+              vous connectez. Nous ne recevons que votre identifiant de compte
+              Google.
+            </li>
+            <li>
+              <strong>RevenueCat</strong> — gère l'état des abonnements Pro. Reçoit
+              un identifiant utilisateur stable lors d'un achat ou d'une
+              restauration.
+            </li>
+          </ul>
         </div>
       </section>
 
