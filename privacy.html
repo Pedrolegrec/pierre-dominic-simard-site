@@ -33,7 +33,7 @@
     <main class="wrap">
       <section class="hero">
         <h1 data-split="chars">Politique de confidentialité</h1>
-        <p class="lead">Date d'entrée en vigueur : 2026-05-21</p>
+        <p class="lead">Date d'entrée en vigueur : 2026-05-22</p>
         <div class="cta">
           <a class="btn btn-ghost" href="./index.html">Retour au site</a>
         </div>
@@ -120,7 +120,7 @@
           </p>
         </div>
 
-        <div class="card">
+        <div class="card" id="digit-span-data-deletion">
           <h2>Suppression du compte et des données</h2>
           <p>
             Pour demander la suppression de votre identifiant de compte Digit Span
@@ -150,9 +150,48 @@
           <p>
             Dial-In fonctionne d'abord hors ligne. L'application stocke vos journaux
             d'extractions, vos cafés et vos préférences sur votre appareil et ne
-            transmet aucune donnée à nos serveurs. L'exportation CSV écrit un
-            fichier temporaire et le partage via le menu de partage du système —
-            aucun téléversement.
+            transmet pas ces journaux à nos serveurs. L'exportation CSV écrit un
+            fichier temporaire et le partage via le menu de partage du système;
+            aucune donnée n'est téléversée lors de l'exportation.
+          </p>
+          <p>
+            <strong>Connexion (facultative).</strong> Si vous vous connectez avec
+            Google, nous recevons un identifiant de compte Google stable, utilisé
+            pour vous reconnaître entre vos appareils et restaurer la propriété des
+            achats cosmétiques. Google peut aussi fournir des champs de profil de
+            base, comme votre adresse courriel ou votre nom d'affichage; nous les
+            utilisons seulement pour afficher l'état de connexion dans
+            l'application.
+          </p>
+          <p>
+            <strong>Facturation.</strong> Les achats cosmétiques sont traités par
+            Google Play; l'état des achats est synchronisé via RevenueCat pour les
+            restaurations et les vérifications de propriété (voir la section
+            Sous-traitants ci-dessous).
+          </p>
+        </div>
+
+        <div class="card" id="dial-in-data-deletion">
+          <h2>Suppression des données Dial-In</h2>
+          <p>
+            Pour demander la suppression ou la dissociation de votre identifiant
+            Google Sign-In Dial-In et des enregistrements hors appareil liés aux
+            achats ou restaurations sous notre contrôle, écrivez à
+            <a href="mailto:pierdo.dev@gmail.com">pierdo.dev@gmail.com</a> avec
+            l'objet « Suppression des données Dial-In ».
+          </p>
+          <p>
+            Les journaux d'extractions, les cafés et les préférences sont stockés
+            sur votre appareil. Vous pouvez les supprimer dans l'écran Data
+            Management de l'application avec Factory Reset (Wipe Everything), en
+            désinstallant l'application ou en effaçant le stockage de l'application
+            dans les réglages de votre appareil.
+          </p>
+          <p>
+            Certains registres d'achat et de paiement sont conservés par Google Play
+            et RevenueCat au besoin pour la facturation, la prévention de la fraude,
+            les taxes et les obligations légales. Supprimer les données du compte
+            dans l'application ne rembourse pas et n'annule pas les achats.
           </p>
         </div>
 
@@ -160,31 +199,34 @@
           <h2>Sous-traitants</h2>
           <p>
             Les services tiers suivants reçoivent des données limitées lorsque vous
-            utilisez le Coach IA de Digit Span Trainer ou que vous vous connectez.
-            Dial-In n'utilise aucun de ces services.
+            utilisez le Coach IA de Digit Span Trainer, que vous vous connectez à
+            une application compatible, ou que vous effectuez ou restaurez des
+            achats.
           </p>
           <ul>
             <li>
               <strong>Fireworks AI</strong> (États-Unis) — exécute le modèle d'IA
-              qui génère les réponses du Coach. Reçoit le résumé des statistiques
-              d'entraînement au moment où vous appuyez sur un bouton du Coach.
-              Aucun stockage persistant chez eux.
+              qui génère les réponses du Coach de Digit Span Trainer. Reçoit le
+              résumé des statistiques d'entraînement au moment où vous appuyez sur
+              un bouton du Coach. Aucun stockage persistant chez eux.
             </li>
             <li>
               <strong>Cloudflare Workers + KV</strong> — achemine les requêtes du
-              Coach et met en cache les réponses quotidiennes. Les entrées du cache
-              sont liées à votre identifiant de compte et expirent automatiquement
-              (généralement en moins de 24 heures).
+              Coach et met en cache les réponses quotidiennes du Coach de Digit
+              Span Trainer. Les entrées du cache sont liées à votre identifiant de
+              compte et expirent automatiquement (généralement en moins de 24
+              heures).
             </li>
             <li>
               <strong>Google Sign-In</strong> — vérifie votre identité lorsque vous
-              vous connectez. Nous ne recevons que votre identifiant de compte
-              Google.
+              vous connectez à Digit Span Trainer ou Dial-In. Nous recevons votre
+              identifiant de compte Google et des champs de profil de base utilisés
+              pour l'état de connexion et la restauration des achats.
             </li>
             <li>
-              <strong>RevenueCat</strong> — gère l'état des abonnements Pro. Reçoit
-              un identifiant utilisateur stable lors d'un achat ou d'une
-              restauration.
+              <strong>RevenueCat</strong> — gère l'état des abonnements et des
+              achats intégrés pour Digit Span Trainer et Dial-In. Reçoit un
+              identifiant utilisateur stable lors d'un achat ou d'une restauration.
             </li>
           </ul>
         </div>
