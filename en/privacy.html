@@ -33,7 +33,7 @@
     <main class="wrap">
       <section class="hero">
         <h1 data-split="chars">Privacy policy</h1>
-        <p class="lead">Effective date: 2026-05-05</p>
+        <p class="lead">Effective date: 2026-05-22</p>
         <div class="cta">
           <a class="btn btn-ghost" href="./index.html">Back to site</a>
         </div>
@@ -92,8 +92,9 @@
           <p>
             <strong>Sign-in (optional).</strong> If you sign in with Google, we
             receive a stable Google account identifier used to recognize you across
-            devices and associate purchases with your account. We don't read your
-            name, email, or profile picture.
+            devices and associate purchases with your account. Google may also
+            provide basic profile fields such as your email address or display name;
+            we use them only to show your signed-in state in the app.
           </p>
           <p>
             <strong>AI Coach (Pro feature).</strong> When you tap an AI Coach button
@@ -113,13 +114,71 @@
           </p>
         </div>
 
+        <div class="card" id="digit-span-data-deletion">
+          <h2>Account and data deletion</h2>
+          <p>
+            To request deletion of your Digit Span Trainer account identifier and
+            associated off-device data, email
+            <a href="mailto:pierdo.dev@gmail.com">pierdo.dev@gmail.com</a> with the
+            subject "Digit Span data deletion".
+          </p>
+          <p>
+            We will delete or disassociate the Google Sign-In identifier we control,
+            clear any active AI Coach cache tied to that identifier, and remove
+            related server-side records under our control. On-device training data
+            can be deleted at any time by using Reset All Progress in the app or
+            uninstalling the app.
+          </p>
+          <p>
+            Some subscription and payment records are retained by Google Play and
+            RevenueCat as required for billing, fraud prevention, tax, and legal
+            compliance. Cancelling or deleting app account data does not cancel an
+            active Google Play subscription; manage subscriptions in Google Play.
+          </p>
+        </div>
+
         <div class="card">
           <h2>Dial-In</h2>
           <p>
             Dial-In is offline-first. The app stores your shot logs, beans, and
-            preferences on your device and does not transmit data to our servers.
-            CSV export writes a temporary file and shares it via the system share
-            sheet — no upload.
+            preferences on your device and does not transmit those logs to our
+            servers. CSV export writes a temporary file and shares it via the
+            system share sheet; no data is uploaded during export.
+          </p>
+          <p>
+            <strong>Sign-in (optional).</strong> If you sign in with Google, we
+            receive a stable Google account identifier used to recognize you across
+            devices and restore cosmetic purchase ownership. Google may also
+            provide basic profile fields such as your email address or display
+            name; we use them only to show your signed-in state in the app.
+          </p>
+          <p>
+            <strong>Billing.</strong> Cosmetic purchases are processed by Google
+            Play; purchase state is mirrored through RevenueCat for restore and
+            ownership checks (see sub-processors below).
+          </p>
+        </div>
+
+        <div class="card" id="dial-in-data-deletion">
+          <h2>Dial-In data deletion</h2>
+          <p>
+            To request deletion or disassociation of your Dial-In Google Sign-In
+            identifier and associated off-device purchase/restore records under our
+            control, email
+            <a href="mailto:pierdo.dev@gmail.com">pierdo.dev@gmail.com</a> with the
+            subject "Dial-In data deletion".
+          </p>
+          <p>
+            Shot logs, beans, and preferences are stored on your device. You can
+            delete them in the app's Data Management screen by using Factory Reset
+            (Wipe Everything), by uninstalling the app, or by clearing the app's
+            storage in your device settings.
+          </p>
+          <p>
+            Some purchase and payment records are retained by Google Play and
+            RevenueCat as required for billing, fraud prevention, tax, and legal
+            compliance. Deleting app account data does not refund or cancel
+            purchases.
           </p>
         </div>
 
@@ -127,27 +186,32 @@
           <h2>Sub-processors</h2>
           <p>
             The following third-party services receive limited data when you use
-            Digit Span Trainer's AI Coach or sign in. Dial-In does not use any of
-            these.
+            Digit Span Trainer's AI Coach, sign in to a supported app, or make or
+            restore purchases.
           </p>
           <ul>
             <li>
               <strong>Fireworks AI</strong> (United States) — runs the AI model that
-              generates Coach responses. Receives the training stats digest at the
-              time of each Coach tap. No persistent storage on their side.
+              generates Digit Span Trainer Coach responses. Receives the training
+              stats digest at the time of each Coach tap. No persistent storage on
+              their side.
             </li>
             <li>
               <strong>Cloudflare Workers + KV</strong> — routes Coach requests and
-              caches daily Coach responses. Cache entries are keyed to your account
-              identifier and expire automatically (typically within 24 hours).
+              caches Digit Span Trainer daily Coach responses. Cache entries are
+              keyed to your account identifier and expire automatically (typically
+              within 24 hours).
             </li>
             <li>
               <strong>Google Sign-In</strong> — verifies your identity when you sign
-              in. We receive your Google account identifier only.
+              in to Digit Span Trainer or Dial-In. We receive your Google account
+              identifier and basic profile fields used for signed-in state and
+              purchase restore.
             </li>
             <li>
-              <strong>RevenueCat</strong> — manages Pro subscription state. Receives
-              a stable user identifier on purchase and restore events.
+              <strong>RevenueCat</strong> — manages subscription and in-app purchase
+              state for Digit Span Trainer and Dial-In. Receives a stable user
+              identifier on purchase and restore events.
             </li>
           </ul>
         </div>
@@ -155,6 +219,7 @@
 
       <footer class="foot">
         This page is a public privacy policy with a stable URL.
+        <br>PierDo on X: <a href="https://x.com/PierDoio" rel="noopener">@PierDoio</a>
       </footer>
     </main>
   </body>
