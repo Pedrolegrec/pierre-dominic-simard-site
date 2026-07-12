@@ -33,7 +33,7 @@
     <main class="wrap">
       <section class="hero">
         <h1 data-split="chars">Politique de confidentialité</h1>
-        <p class="lead">Date d'entrée en vigueur : 2026-05-22</p>
+        <p class="lead">Date d'entrée en vigueur : 2026-07-12</p>
         <div class="cta">
           <a class="btn btn-ghost" href="./index.html">Retour au site</a>
         </div>
@@ -95,21 +95,44 @@
             <strong>Connexion (facultative).</strong> Si vous vous connectez avec
             Google, nous recevons un identifiant de compte Google stable, utilisé
             pour vous reconnaître entre vos appareils et associer vos achats à votre
-            compte. Google peut aussi fournir des champs de profil de base, comme
-            votre adresse courriel ou votre nom d'affichage; nous les utilisons
-            seulement pour afficher l'état de connexion dans l'application.
+            compte. Google peut aussi fournir votre adresse courriel ou votre nom
+            d'affichage. L'application utilise ces champs de profil uniquement sur
+            votre appareil pour afficher votre état de connexion et ne les transmet
+            pas au service du Coach ni à la mesure Coach+.
           </p>
           <p>
-            <strong>Coach IA (fonctionnalité Pro).</strong> Lorsque vous appuyez sur
-            un bouton du Coach IA en tant qu'utilisateur Pro, un résumé de vos
-            statistiques d'entraînement récentes (meilleure portée, précision
-            récente par mode, nombre de rondes hebdomadaires) est envoyé en HTTPS à
-            notre service afin de générer une réponse personnalisée. Nous ne
-            partageons pas ces données avec des annonceurs et nous ne les vendons
-            pas.
+            <strong>Coach IA.</strong> Lorsque vous appuyez sur un bouton du Coach IA,
+            un résumé de vos statistiques d'entraînement récentes (meilleure portée,
+            précision récente par mode, nombre de rondes hebdomadaires et progression
+            Journey) est envoyé en HTTPS à notre service afin de générer une réponse
+            personnalisée. Les utilisateurs gratuits peuvent demander jusqu'à trois
+            conseils admissibles par jour UTC; les abonnés Coach+ reçoivent le service
+            étendu du Coach. Nous ne vendons pas ces données et ne les partageons pas
+            avec des annonceurs.
           </p>
           <p>
-            <strong>Facturation.</strong> Les abonnements Pro sont traités par
+            <strong>Mesure de Coach+.</strong> Pour comprendre si l'expérience gratuite
+            du Coach mène à Coach+, nous comptons quatre jalons : un conseil gratuit
+            généré avec succès, l'affichage de l'écran d'abonnement Coach+, le début
+            d'un achat et la fin d'un achat initial. L'application transmet un
+            identifiant utilisateur RevenueCat propre à l'application, une source
+            d'entrée provenant d'une liste restreinte et un identifiant d'événement
+            aléatoire avec les jalons d'affichage et de début d'achat. Le service
+            enregistre la réussite du conseil gratuit et n'enregistre l'achat complété
+            qu'à partir d'un événement RevenueCat de production authentifié.
+          </p>
+          <p>
+            Les marqueurs aléatoires utilisés pour éviter le double comptage expirent
+            après 32 jours. Une empreinte SHA-256 de l'identifiant RevenueCat et la
+            dernière source d'entrée sont conservées jusqu'à 14 jours afin d'attribuer
+            un achat complété. Les décomptes hebdomadaires sans identifiant, regroupés
+            par source, expirent après 400 jours. Ces rapports ne contiennent aucun
+            identifiant de compte, message ou réponse du Coach, statistique
+            d'entraînement, prix ou détail de produit, identifiant de transaction,
+            champ de profil Google ni donnée publicitaire.
+          </p>
+          <p>
+            <strong>Facturation.</strong> Les abonnements Coach+ sont traités par
             Google Play ; l'état de l'abonnement est synchronisé via RevenueCat
             (voir la section Sous-traitants ci-dessous).
           </p>
@@ -130,11 +153,14 @@
           </p>
           <p>
             Nous supprimerons ou dissocierons l'identifiant Google Sign-In que nous
-            contrôlons, effacerons tout cache actif du Coach IA lié à cet
-            identifiant et supprimerons les enregistrements côté serveur connexes
-            sous notre contrôle. Les données d'entraînement stockées sur l'appareil
-            peuvent être supprimées en tout temps avec l'action Reset All Progress
-            dans l'application ou en désinstallant l'application.
+            contrôlons, effacerons les enregistrements du Coach IA liés au compte et
+            toute attribution courante de la source d'achat Coach+ liée à cet
+            identifiant, puis supprimerons les enregistrements côté serveur connexes
+            sous notre contrôle. Les décomptes agrégés sans identifiant ne peuvent pas
+            être reliés à un compte et expirent après 400 jours. Les données
+            d'entraînement stockées sur l'appareil peuvent être supprimées en tout
+            temps avec l'action Reset All Progress dans l'application ou en
+            désinstallant l'application.
           </p>
           <p>
             Certains registres d'abonnement et de paiement sont conservés par Google
@@ -199,34 +225,45 @@
           <h2>Sous-traitants</h2>
           <p>
             Les services tiers suivants reçoivent des données limitées lorsque vous
-            utilisez le Coach IA de Digit Span Trainer, que vous vous connectez à
-            une application compatible, ou que vous effectuez ou restaurez des
-            achats.
+            utilisez le Coach IA ou la mesure Coach+ de Digit Span Trainer, que vous
+            vous connectez à une application compatible, ou que vous effectuez ou
+            restaurez des achats.
           </p>
           <ul>
             <li>
               <strong>Fireworks AI</strong> (États-Unis) — exécute le modèle d'IA
               qui génère les réponses du Coach de Digit Span Trainer. Reçoit le
-              résumé des statistiques d'entraînement au moment où vous appuyez sur
-              un bouton du Coach. Aucun stockage persistant chez eux.
+              résumé des statistiques d'entraînement et un identifiant utilisateur
+              propre à l'application au moment où vous appuyez sur un bouton du
+              Coach. Ne reçoit pas les données distinctes de la mesure Coach+.
             </li>
             <li>
               <strong>Cloudflare Workers + KV</strong> — achemine les requêtes du
-              Coach et met en cache les réponses quotidiennes du Coach de Digit
-              Span Trainer. Les entrées du cache sont liées à votre identifiant de
-              compte et expirent automatiquement (généralement en moins de 24
-              heures).
+              Coach, applique les limites de débit et stocke les enregistrements
+              propres à l'application liés aux droits d'accès, aux allocations, à la
+              protection des dépenses, à la mémoire limitée et évolutive du Coach et
+              à la mesure Coach+. Cloudflare traite les métadonnées réseau des
+              requêtes, y compris les adresses IP, pour leur acheminement et la
+              limitation du débit. Les enregistrements de mesure Coach+ suivent les
+              périodes de conservation décrites ci-dessus; les autres enregistrements
+              du Coach liés au compte sont conservés uniquement au besoin pour les
+              droits d'accès, les allocations, la protection des dépenses et la
+              continuité limitée et évolutive du Coach.
             </li>
             <li>
               <strong>Google Sign-In</strong> — vérifie votre identité lorsque vous
               vous connectez à Digit Span Trainer ou Dial-In. Nous recevons votre
-              identifiant de compte Google et des champs de profil de base utilisés
-              pour l'état de connexion et la restauration des achats.
+              identifiant de compte Google stable. Google peut aussi fournir des
+              champs de profil de base que les applications utilisent sur l'appareil
+              pour afficher l'état de connexion.
             </li>
             <li>
               <strong>RevenueCat</strong> — gère l'état des abonnements et des
-              achats intégrés pour Digit Span Trainer et Dial-In. Reçoit un
-              identifiant utilisateur stable lors d'un achat ou d'une restauration.
+              achats intégrés pour Digit Span Trainer et Dial-In et transmet des
+              événements d'abonnement et d'achat authentifiés. Reçoit un identifiant
+              utilisateur stable propre à l'application; un événement de production
+              authentifié lié à l'achat initial fournit le jalon d'achat complété de
+              Coach+.
             </li>
           </ul>
         </div>
