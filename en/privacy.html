@@ -33,7 +33,7 @@
     <main class="wrap">
       <section class="hero">
         <h1 data-split="chars">Privacy policy</h1>
-        <p class="lead">Effective date: 2026-05-22</p>
+        <p class="lead">Effective date: 2026-07-12</p>
         <div class="cta">
           <a class="btn btn-ghost" href="./index.html">Back to site</a>
         </div>
@@ -93,18 +93,40 @@
             <strong>Sign-in (optional).</strong> If you sign in with Google, we
             receive a stable Google account identifier used to recognize you across
             devices and associate purchases with your account. Google may also
-            provide basic profile fields such as your email address or display name;
-            we use them only to show your signed-in state in the app.
+            provide your email address or display name. The app uses those profile
+            fields only on your device to show your signed-in state and does not send
+            them to the Coach backend or Coach+ measurement.
           </p>
           <p>
-            <strong>AI Coach (Pro feature).</strong> When you tap an AI Coach button
-            as a Pro user, a digest of your recent training stats (best span, recent
-            accuracy per mode, weekly round counts) is sent over HTTPS to our
-            backend to generate a personalized response. We don't share this data
-            with advertisers and we don't sell it.
+            <strong>AI Coach.</strong> When you tap an AI Coach button, a digest of
+            your recent training statistics (best span, recent accuracy per mode,
+            weekly round counts, and Journey progress) is sent over HTTPS to our
+            backend to generate a personalized response. Free users can request up
+            to three readiness-qualified insights per UTC day; Coach+ subscribers
+            receive the expanded Coach service. We don't sell this data or share it
+            with advertisers.
           </p>
           <p>
-            <strong>Billing.</strong> Pro subscriptions are processed by Google
+            <strong>Coach+ measurement.</strong> To understand whether the free Coach
+            experience leads people to Coach+, we count four milestones: a free
+            insight succeeded, the Coach+ subscription screen was viewed, a purchase
+            was started, and an initial purchase was completed. The app sends a
+            RevenueCat app user identifier, an allowlisted entry source, and a random
+            event identifier with paywall-view and purchase-start milestones. The
+            backend records free-insight success and records purchase completion only
+            from an authenticated production RevenueCat event.
+          </p>
+          <p>
+            Random event markers used to prevent duplicate counting expire after 32
+            days. A SHA-256 hash of the RevenueCat user identifier and the latest
+            entry source is retained for up to 14 days to attribute a completed
+            purchase. Identifier-free weekly counts by source expire after 400 days.
+            These reports do not contain account identifiers, Coach prompts or
+            responses, training statistics, prices or product details, transaction
+            identifiers, Google profile fields, or advertising data.
+          </p>
+          <p>
+            <strong>Billing.</strong> Coach+ subscriptions are processed by Google
             Play; subscription state is mirrored through RevenueCat (see
             sub-processors below).
           </p>
@@ -124,10 +146,12 @@
           </p>
           <p>
             We will delete or disassociate the Google Sign-In identifier we control,
-            clear any active AI Coach cache tied to that identifier, and remove
-            related server-side records under our control. On-device training data
-            can be deleted at any time by using Reset All Progress in the app or
-            uninstalling the app.
+            clear account-linked AI Coach records and any current Coach+ purchase-source
+            attribution tied to that identifier, and remove related server-side
+            records under our control. Identifier-free aggregate counts cannot be
+            linked back to an account and expire after 400 days. On-device training
+            data can be deleted at any time by using Reset All Progress in the app
+            or uninstalling the app.
           </p>
           <p>
             Some subscription and payment records are retained by Google Play and
@@ -186,32 +210,39 @@
           <h2>Sub-processors</h2>
           <p>
             The following third-party services receive limited data when you use
-            Digit Span Trainer's AI Coach, sign in to a supported app, or make or
-            restore purchases.
+            Digit Span Trainer's AI Coach or Coach+ measurement, sign in to a
+            supported app, or make or restore purchases.
           </p>
           <ul>
             <li>
               <strong>Fireworks AI</strong> (United States) — runs the AI model that
               generates Digit Span Trainer Coach responses. Receives the training
-              stats digest at the time of each Coach tap. No persistent storage on
-              their side.
+              statistics digest and an app-scoped user identifier at the time of
+              each Coach tap. It does not receive the separate Coach+ measurement
+              payload.
             </li>
             <li>
-              <strong>Cloudflare Workers + KV</strong> — routes Coach requests and
-              caches Digit Span Trainer daily Coach responses. Cache entries are
-              keyed to your account identifier and expire automatically (typically
-              within 24 hours).
+              <strong>Cloudflare Workers + KV</strong> — routes and rate-limits Coach
+              requests and stores app-scoped entitlement, allowance, spend-protection,
+              limited rolling Coach-memory, and Coach+ measurement records. Cloudflare
+              processes request network metadata, including IP addresses, for delivery
+              and rate limiting. Coach+ measurement records follow the retention
+              periods described above; other account-linked Coach records are retained
+              only as needed for entitlement, allowance, spend protection, and limited
+              rolling Coach continuity.
             </li>
             <li>
               <strong>Google Sign-In</strong> — verifies your identity when you sign
-              in to Digit Span Trainer or Dial-In. We receive your Google account
-              identifier and basic profile fields used for signed-in state and
-              purchase restore.
+              in to Digit Span Trainer or Dial-In. We receive your stable Google
+              account identifier. Google may also provide basic profile fields that
+              the apps use on-device to show signed-in state.
             </li>
             <li>
               <strong>RevenueCat</strong> — manages subscription and in-app purchase
-              state for Digit Span Trainer and Dial-In. Receives a stable user
-              identifier on purchase and restore events.
+              state for Digit Span Trainer and Dial-In and sends authenticated
+              subscription and purchase events. It receives a stable app user
+              identifier; an authenticated production initial-purchase event supplies
+              the Coach+ purchase-completion milestone.
             </li>
           </ul>
         </div>
