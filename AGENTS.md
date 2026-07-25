@@ -1,7 +1,7 @@
 # Pierre-Dominic Simard Site Instructions
 
 These instructions apply to the whole
-`/app/dev/pierre-dominic-simard-site` repository.
+`/app/dev/public-presence/pierre-dominic-simard-site` repository.
 
 ## Role
 
@@ -35,8 +35,8 @@ for business identity, D-U-N-S, and Google Play onboarding.
 Before reporting changes complete, run:
 
 ```bash
-git -C /app/dev/pierre-dominic-simard-site diff --check
-git -C /app/dev/pierre-dominic-simard-site status --short
+git -C /app/dev/public-presence/pierre-dominic-simard-site diff --check
+git -C /app/dev/public-presence/pierre-dominic-simard-site status --short
 ```
 
 For visual or language changes, preview the static site in a browser or local
