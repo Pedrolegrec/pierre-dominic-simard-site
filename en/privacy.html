@@ -258,9 +258,11 @@
               pilot is enabled. They receive observed fact IDs and four option
               definitions, but no app user/install identifier, request ID, numeric
               recipe or equipment values, shot history, notes, or purchase state. The
-              request asks for one option ID and denies provider data collection; we
-              do not make a blanket zero-retention or no-training claim before the
-              exact live provider configuration is verified.
+              request asks for one option ID, denies provider data collection, and
+              requires a Zero Data Retention endpoint. This does not make a blanket
+              retention or no-training claim for OpenRouter account metadata,
+              Cloudflare delivery logs, processor backups, or any other unverified
+              live surface.
             </li>
             <li>
               <strong>Cloudflare Workers, Durable Objects, and KV</strong> — routes
