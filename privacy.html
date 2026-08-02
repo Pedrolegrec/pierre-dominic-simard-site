@@ -33,7 +33,7 @@
     <main class="wrap">
       <section class="hero">
         <h1 data-split="chars">Politique de confidentialité</h1>
-        <p class="lead">Date d'entrée en vigueur : 2026-07-12</p>
+        <p class="lead">Date d'entrée en vigueur : 2026-08-02</p>
         <div class="cta">
           <a class="btn btn-ghost" href="./index.html">Retour au site</a>
         </div>
@@ -174,50 +174,85 @@
         <div class="card">
           <h2>Dial-In</h2>
           <p>
-            Dial-In fonctionne d'abord hors ligne. L'application stocke vos journaux
-            d'extractions, vos cafés et vos préférences sur votre appareil et ne
-            transmet pas ces journaux à nos serveurs. L'exportation CSV écrit un
-            fichier temporaire et le partage via le menu de partage du système;
-            aucune donnée n'est téléversée lors de l'exportation.
+            <strong>Fondation locale.</strong> Les extractions, les cafés, les
+            réglages d'équipement, les préférences et le Coach déterministe restent
+            sur votre appareil. La journalisation et les conseils déterministes pour
+            la prochaine extraction fonctionnent hors ligne, sans compte.
+            L'exportation CSV écrit un fichier temporaire et ouvre le menu de partage
+            du système; Dial-In ne téléverse pas ce fichier.
           </p>
           <p>
-            <strong>Connexion (facultative).</strong> Si vous vous connectez avec
-            Google, nous recevons un identifiant de compte Google stable, utilisé
-            pour vous reconnaître entre vos appareils et restaurer la propriété des
-            achats cosmétiques. Google peut aussi fournir des champs de profil de
-            base, comme votre adresse courriel ou votre nom d'affichage; nous les
-            utilisons seulement pour afficher l'état de connexion dans
-            l'application.
+            <strong>Coach distant interne optionnel.</strong> Un essai configuré
+            séparément est offert uniquement aux personnes invitées au test interne.
+            Lorsqu'une personne demande explicitement un plan distant, Dial-In envoie
+            à son service une enveloppe limitée : dose et rendement numériques,
+            identifiants de faits observés provenant d'une liste fermée, contexte de
+            sécurité borné de l'équipement et quatre options approuvées par
+            l'application. Aucun commentaire, nom de café ou de torréfacteur, fichier
+            CSV, historique complet, contact, emplacement, identifiant publicitaire
+            ni texte de clavardage libre n'est envoyé. Le modèle choisit seulement un
+            identifiant d'option opaque; l'application le valide et calcule localement
+            toutes les consignes et cibles numériques affichées. Un résultat invalide
+            ou indisponible revient au Coach déterministe gratuit.
           </p>
           <p>
-            <strong>Facturation.</strong> Les achats cosmétiques sont traités par
-            Google Play; l'état des achats est synchronisé via RevenueCat pour les
-            restaurations et les vérifications de propriété (voir la section
-            Sous-traitants ci-dessous).
+            <strong>Accès anonyme.</strong> L'application génère une preuve
+            d'installation aléatoire dans son stockage privé. Le service Dial-In la
+            pseudonymise avec un hachage à clé afin d'appliquer l'allocation interne
+            d'une boucle; ce n'est pas un identifiant matériel et le service ne
+            conserve pas la preuve brute.
+          </p>
+          <p>
+            <strong>Connexion et achats en bac à sable.</strong> Google Sign-In ne
+            démarre qu'après une action interne explicite Acheter ou Restaurer. Le
+            service vérifie le jeton d'identité Google, utilise seulement son
+            identifiant de sujet stable, puis supprime le jeton. Il dérive un
+            identifiant utilisateur RevenueCat opaque et distinct; ni le sujet Google
+            brut ni l'adresse courriel ne servent de propriétaire RevenueCat. Google
+            Play et RevenueCat traitent l'achat et la restauration du Pack Coach à
+            quantité limitée en bac à sable. Cet essai n'offre aucun abonnement,
+            accès illimité ni achat public.
+          </p>
+          <p>
+            <strong>Conservation du service.</strong> Les plans en attente expirent
+            après 10 minutes; les enregistrements terminaux de rejeu ou de référence,
+            après 24 heures; les sessions opaques, après 15 minutes; les entrées
+            d'audit minimales, après 7 jours; les entrées de rapprochement commercial,
+            après 90 jours; et les contrôles mensuels de dépenses bornés, dans un
+            délai de 62 jours. Le marqueur anonyme consommé reste jusqu'à la
+            suppression de l'accès distant. Le service ne conserve pas l'historique
+            des extractions, les commentaires, les noms de cafés, les requêtes ou
+            réponses du fournisseur, les jetons Google ni les identifiants d'achat
+            bruts comme mémoire du Coach ou données d'audit.
           </p>
         </div>
 
         <div class="card" id="dial-in-data-deletion">
           <h2>Suppression des données Dial-In</h2>
           <p>
-            Pour demander la suppression ou la dissociation de votre identifiant
-            Google Sign-In Dial-In et des enregistrements hors appareil liés aux
-            achats ou restaurations sous notre contrôle, écrivez à
+            L'action Delete All Data de Dial-In supprime les extractions, les cafés,
+            l'équipement et les données du Coach stockés localement, même hors ligne.
+            Désinstaller l'application ou effacer son stockage supprime également
+            les données locales.
+          </p>
+          <p>
+            Si un accès au Coach distant existe, Delete All Data demande aussi au
+            service Dial-In de supprimer l'accès pseudonyme, les plans en attente,
+            la session et l'état local de rapprochement. Si cette demande ne peut
+            être confirmée, l'application conserve uniquement l'identifiant opaque
+            du propriétaire d'origine et un marqueur de suppression en attente afin
+            de réessayer; elle ne prétend pas que la suppression distante a réussi.
+            Un autre compte Google ne peut pas terminer la suppression pour le
+            propriétaire d'origine.
+          </p>
+          <p>
+            Vous pouvez aussi écrire à
             <a href="mailto:pierdo.dev@gmail.com">pierdo.dev@gmail.com</a> avec
-            l'objet « Suppression des données Dial-In ».
-          </p>
-          <p>
-            Les journaux d'extractions, les cafés et les préférences sont stockés
-            sur votre appareil. Vous pouvez les supprimer dans l'écran Data
-            Management de l'application avec Factory Reset (Wipe Everything), en
-            désinstallant l'application ou en effaçant le stockage de l'application
-            dans les réglages de votre appareil.
-          </p>
-          <p>
-            Certains registres d'achat et de paiement sont conservés par Google Play
-            et RevenueCat au besoin pour la facturation, la prévention de la fraude,
-            les taxes et les obligations légales. Supprimer les données du compte
-            dans l'application ne rembourse pas et n'annule pas les achats.
+            l'objet « Suppression des données Dial-In » pour obtenir de l'aide avec
+            les données hors appareil sous notre contrôle. Certains registres
+            d'achat et de paiement restent chez Google Play et RevenueCat au besoin
+            pour la facturation, la prévention de la fraude, les taxes ou la loi.
+            Supprimer les données ne rembourse pas un achat.
           </p>
         </div>
 
@@ -225,9 +260,9 @@
           <h2>Sous-traitants</h2>
           <p>
             Les services tiers suivants reçoivent des données limitées lorsque vous
-            utilisez le Coach IA ou la mesure Coach+ de Digit Span Trainer, que vous
-            vous connectez à une application compatible, ou que vous effectuez ou
-            restaurez des achats.
+            utilisez le Coach IA ou la mesure Coach+ de Digit Span Trainer, le Coach
+            distant interne de Dial-In sur invitation, une connexion à une
+            application compatible, ou un achat ou une restauration.
           </p>
           <ul>
             <li>
@@ -238,32 +273,45 @@
               Coach. Ne reçoit pas les données distinctes de la mesure Coach+.
             </li>
             <li>
-              <strong>Cloudflare Workers + KV</strong> — achemine les requêtes du
-              Coach, applique les limites de débit et stocke les enregistrements
-              propres à l'application liés aux droits d'accès, aux allocations, à la
-              protection des dépenses, à la mémoire limitée et évolutive du Coach et
-              à la mesure Coach+. Cloudflare traite les métadonnées réseau des
-              requêtes, y compris les adresses IP, pour leur acheminement et la
-              limitation du débit. Les enregistrements de mesure Coach+ suivent les
-              périodes de conservation décrites ci-dessus; les autres enregistrements
-              du Coach liés au compte sont conservés uniquement au besoin pour les
-              droits d'accès, les allocations, la protection des dépenses et la
-              continuité limitée et évolutive du Coach.
+              <strong>OpenRouter et Anthropic (candidat interne Dial-In)</strong> —
+              acheminent et exécutent la demande fermée de sélection d'option
+              seulement si l'essai sur invitation est activé. Ils reçoivent les
+              identifiants de faits observés et quatre définitions d'options, mais
+              aucun identifiant d'utilisateur ou d'installation, identifiant de
+              requête, valeur numérique de recette ou d'équipement, historique d'extractions,
+              commentaire ni état d'achat. La demande exige un seul identifiant
+              d'option et refuse la collecte de données par le fournisseur; nous
+              n'affirmons pas une conservation nulle ni une absence générale
+              d'entraînement avant la vérification de la configuration réelle.
             </li>
             <li>
-              <strong>Google Sign-In</strong> — vérifie votre identité lorsque vous
-              vous connectez à Digit Span Trainer ou Dial-In. Nous recevons votre
-              identifiant de compte Google stable. Google peut aussi fournir des
-              champs de profil de base que les applications utilisent sur l'appareil
-              pour afficher l'état de connexion.
+              <strong>Cloudflare Workers, Durable Objects et KV</strong> — achemine
+              les requêtes du Coach et applique les limites de débit. Digit Span
+              utilise les enregistrements existants décrits ci-dessus. L'essai interne
+              sur invitation de Dial-In utilise des Durable Objects distincts pour
+              l'allocation pseudonyme, la session de courte durée, le plan en attente,
+              le rapprochement, la protection des dépenses et l'audit minimal selon
+              les périodes Dial-In ci-dessus; il ne stocke pas de mémoire du Coach
+              côté serveur. Cloudflare traite les métadonnées réseau des requêtes, y
+              compris les adresses IP, pour l'acheminement, la sécurité et la
+              limitation du débit.
             </li>
             <li>
-              <strong>RevenueCat</strong> — gère l'état des abonnements et des
-              achats intégrés pour Digit Span Trainer et Dial-In et transmet des
-              événements d'abonnement et d'achat authentifiés. Reçoit un identifiant
-              utilisateur stable propre à l'application; un événement de production
-              authentifié lié à l'achat initial fournit le jalon d'achat complété de
-              Coach+.
+              <strong>Google Sign-In</strong> — vérifie l'identité uniquement lorsque
+              vous vous connectez explicitement à Digit Span Trainer ou choisissez
+              l'action interne Acheter ou Restaurer de Dial-In. Le service Dial-In
+              vérifie le jeton d'identité, utilise son sujet stable pour dériver des
+              identifiants opaques, puis supprime le jeton; il ne conserve pas les
+              champs de profil Google pour le Coach distant.
+            </li>
+            <li>
+              <strong>RevenueCat</strong> — gère l'état des abonnements et des achats
+              intégrés et transmet des événements d'achat authentifiés. Digit Span
+              utilise son propre identifiant utilisateur et le flux de mesure décrit
+              ci-dessus. Dial-In utilise un identifiant opaque distinct, dérivé par
+              son service, pour le solde, le débit, la restauration, le remboursement
+              et la révocation du Pack Coach interne à quantité limitée; le sujet
+              Google brut ne lui est pas transmis comme propriétaire.
             </li>
           </ul>
         </div>

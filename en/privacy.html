@@ -33,7 +33,7 @@
     <main class="wrap">
       <section class="hero">
         <h1 data-split="chars">Privacy policy</h1>
-        <p class="lead">Effective date: 2026-07-12</p>
+        <p class="lead">Effective date: 2026-08-02</p>
         <div class="cta">
           <a class="btn btn-ghost" href="./index.html">Back to site</a>
         </div>
@@ -164,45 +164,75 @@
         <div class="card">
           <h2>Dial-In</h2>
           <p>
-            Dial-In is offline-first. The app stores your shot logs, beans, and
-            preferences on your device and does not transmit those logs to our
-            servers. CSV export writes a temporary file and shares it via the
-            system share sheet; no data is uploaded during export.
+            <strong>Local foundation.</strong> Shot logs, beans, equipment settings,
+            preferences, and the deterministic Coach stay on your device. Core
+            logging and deterministic next-shot guidance work offline without an
+            account. CSV export writes a temporary file and opens the system share
+            sheet; Dial-In does not upload that file.
           </p>
           <p>
-            <strong>Sign-in (optional).</strong> If you sign in with Google, we
-            receive a stable Google account identifier used to recognize you across
-            devices and restore cosmetic purchase ownership. Google may also
-            provide basic profile fields such as your email address or display
-            name; we use them only to show your signed-in state in the app.
+            <strong>Optional Internal Remote Coach.</strong> A separately configured
+            pilot is available only to invited Internal Testing users. When a tester
+            explicitly requests a remote plan, Dial-In sends its service a bounded
+            envelope containing numeric dose and yield, closed observed-fact IDs,
+            bounded equipment-safety context, and four app-approved options. It does
+            not send notes, bean or roaster names, CSV files, full shot history,
+            contacts, location, advertising identifiers, or arbitrary chat text.
+            The model selects only an opaque option ID; the app validates that ID and
+            computes all displayed instructions and numeric targets locally. Invalid
+            or unavailable results fall back to the free deterministic Coach.
           </p>
           <p>
-            <strong>Billing.</strong> Cosmetic purchases are processed by Google
-            Play; purchase state is mirrored through RevenueCat for restore and
-            ownership checks (see sub-processors below).
+            <strong>Anonymous access.</strong> The app generates a random install
+            proof in private app storage. The Dial-In service pseudonymizes it with a
+            keyed hash to enforce the one-loop Internal allowance; it is not a
+            hardware identifier and the raw proof is not stored by the service.
+          </p>
+          <p>
+            <strong>Sign-in and sandbox purchases.</strong> Google Sign-In starts
+            only after an explicit Internal Buy or Restore action. The service
+            verifies the Google ID token, uses only its stable account subject, and
+            then discards the token. It derives a separate opaque RevenueCat user ID;
+            neither the raw Google subject nor email address is used as the
+            RevenueCat owner. Google Play and RevenueCat process the finite sandbox
+            Coach Pack purchase and restoration state. No subscription, unlimited
+            access, or public purchase availability is offered by this pilot.
+          </p>
+          <p>
+            <strong>Service retention.</strong> Pending plans expire after 10
+            minutes; terminal replay/tombstone records after 24 hours; opaque
+            sessions after 15 minutes; privacy-minimal audit entries after 7 days;
+            commerce reconciliation entries after 90 days; and bounded monthly spend
+            controls within 62 days. The anonymous consumed marker remains until
+            remote access is deleted. The service does not retain shot history,
+            notes, bean names, provider prompts/responses, Google tokens, or raw
+            purchase identifiers as Coach memory or audit data.
           </p>
         </div>
 
         <div class="card" id="dial-in-data-deletion">
           <h2>Dial-In data deletion</h2>
           <p>
-            To request deletion or disassociation of your Dial-In Google Sign-In
-            identifier and associated off-device purchase/restore records under our
-            control, email
+            Dial-In's Delete All Data action deletes local shots, beans, equipment,
+            and Coach data even when the device is offline. Uninstalling the app or
+            clearing its storage also removes local data.
+          </p>
+          <p>
+            If Remote Coach access exists, Delete All Data also asks the Dial-In
+            service to delete its pseudonymous access, pending-plan, session, and
+            local reconciliation state. If that request cannot be confirmed, the app
+            retains only the opaque original-principal credential and a pending
+            deletion marker needed to retry; it does not claim that remote deletion
+            succeeded. A different Google account cannot complete deletion for the
+            original owner.
+          </p>
+          <p>
+            You may also email
             <a href="mailto:pierdo.dev@gmail.com">pierdo.dev@gmail.com</a> with the
-            subject "Dial-In data deletion".
-          </p>
-          <p>
-            Shot logs, beans, and preferences are stored on your device. You can
-            delete them in the app's Data Management screen by using Factory Reset
-            (Wipe Everything), by uninstalling the app, or by clearing the app's
-            storage in your device settings.
-          </p>
-          <p>
-            Some purchase and payment records are retained by Google Play and
-            RevenueCat as required for billing, fraud prevention, tax, and legal
-            compliance. Deleting app account data does not refund or cancel
-            purchases.
+            subject "Dial-In data deletion" for help with off-device data under our
+            control. Some purchase and payment records remain with Google Play and
+            RevenueCat as required for billing, fraud prevention, tax, or law.
+            Deleting data does not refund a purchase.
           </p>
         </div>
 
@@ -210,8 +240,9 @@
           <h2>Sub-processors</h2>
           <p>
             The following third-party services receive limited data when you use
-            Digit Span Trainer's AI Coach or Coach+ measurement, sign in to a
-            supported app, or make or restore purchases.
+            Digit Span Trainer's AI Coach or Coach+ measurement, use Dial-In's
+            invited Internal Remote Coach, sign in to a supported app, or make or
+            restore purchases.
           </p>
           <ul>
             <li>
@@ -222,27 +253,39 @@
               payload.
             </li>
             <li>
-              <strong>Cloudflare Workers + KV</strong> — routes and rate-limits Coach
-              requests and stores app-scoped entitlement, allowance, spend-protection,
-              limited rolling Coach-memory, and Coach+ measurement records. Cloudflare
-              processes request network metadata, including IP addresses, for delivery
-              and rate limiting. Coach+ measurement records follow the retention
-              periods described above; other account-linked Coach records are retained
-              only as needed for entitlement, allowance, spend protection, and limited
-              rolling Coach continuity.
+              <strong>OpenRouter and Anthropic (Dial-In Internal candidate)</strong>
+              — route and run the closed option-selection request only if the invited
+              pilot is enabled. They receive observed fact IDs and four option
+              definitions, but no app user/install identifier, request ID, numeric
+              recipe or equipment values, shot history, notes, or purchase state. The
+              request asks for one option ID and denies provider data collection; we
+              do not make a blanket zero-retention or no-training claim before the
+              exact live provider configuration is verified.
             </li>
             <li>
-              <strong>Google Sign-In</strong> — verifies your identity when you sign
-              in to Digit Span Trainer or Dial-In. We receive your stable Google
-              account identifier. Google may also provide basic profile fields that
-              the apps use on-device to show signed-in state.
+              <strong>Cloudflare Workers, Durable Objects, and KV</strong> — routes
+              and rate-limits Coach requests. Digit Span uses the existing records
+              described above. Dial-In's invited Internal pilot uses separate Durable
+              Objects for pseudonymous allowance, short-lived session, pending-plan,
+              reconciliation, spend-protection, and minimal audit state under the
+              Dial-In retention periods above; it does not store server-side Coach
+              memory. Cloudflare processes request network metadata, including IP
+              addresses, for delivery, security, and rate limiting.
+            </li>
+            <li>
+              <strong>Google Sign-In</strong> — verifies identity only when you
+              explicitly sign in to Digit Span Trainer or choose Dial-In's Internal
+              Buy or Restore action. Dial-In's service verifies the ID token, uses its
+              stable subject to derive opaque service identifiers, and discards the
+              token; it does not retain Google profile fields for Remote Coach.
             </li>
             <li>
               <strong>RevenueCat</strong> — manages subscription and in-app purchase
-              state for Digit Span Trainer and Dial-In and sends authenticated
-              subscription and purchase events. It receives a stable app user
-              identifier; an authenticated production initial-purchase event supplies
-              the Coach+ purchase-completion milestone.
+              state and sends authenticated purchase events. Digit Span uses its own
+              app user identifier and measurement flow described above. Dial-In uses
+              a separate service-derived opaque user ID for finite Internal Coach Pack
+              balance, debit, restoration, refund, and revocation reconciliation; it
+              does not give RevenueCat the raw Google subject as that owner.
             </li>
           </ul>
         </div>
