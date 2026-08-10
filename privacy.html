@@ -33,7 +33,7 @@
     <main class="wrap">
       <section class="hero">
         <h1 data-split="chars">Politique de confidentialité</h1>
-        <p class="lead">Date d'entrée en vigueur : 2026-08-02</p>
+        <p class="lead">Date d'entrée en vigueur : 2026-08-10</p>
         <div class="cta">
           <a class="btn btn-ghost" href="./index.html">Retour au site</a>
         </div>
@@ -88,86 +88,199 @@
           <h2>Digit Span Trainer</h2>
           <p>
             <strong>Données locales uniquement.</strong> Les rondes d'entraînement,
-            les préférences, les déverrouillages d'apparences et la progression du
-            tutoriel sont stockés sur votre appareil et ne le quittent pas d'eux-mêmes.
+            les préférences, les déverrouillages d'apparences, la progression du
+            tutoriel, les programmes Digit Span Lab enregistrés, les objectifs locaux,
+            la progression de l'exercice Lab actif et le dernier instantané de rapport
+            Lab généré sont stockés sur votre appareil avec IndexedDB. Ces données ne
+            quittent pas l'appareil d'elles-mêmes.
           </p>
           <p>
-            <strong>Connexion (facultative).</strong> Si vous vous connectez avec
-            Google, nous recevons un identifiant de compte Google stable, utilisé
-            pour vous reconnaître entre vos appareils et associer vos achats à votre
-            compte. Google peut aussi fournir votre adresse courriel ou votre nom
-            d'affichage. L'application utilise ces champs de profil uniquement sur
-            votre appareil pour afficher votre état de connexion et ne les transmet
-            pas au service du Coach ni à la mesure Coach+.
+            <strong>La connexion est facultative pour les fonctions locales.</strong>
+            La connexion Google n'est pas requise pour l'entraînement Free Core, les
+            statistiques, les thèmes, le CSV ni les contrôles d'achat et de
+            restauration de Digit Span Lab. Google Play exige tout de même un compte
+            Google Play pour acheter ou restaurer Lab. La connexion Google du Coach
+            est requise uniquement pour le Coach IA afin que les échantillons à vie et
+            les conseils achetés restent associés au bon compte Coach. Google peut
+            fournir un identifiant de compte stable, une adresse courriel et un nom
+            d'affichage. Les champs de profil sont affichés localement; ils ne sont pas
+            transmis au service du Coach ni inclus dans la mesure du Pack Coach. Un
+            jeton d'identité de courte durée est envoyé au service du Coach pour
+            vérification lors de la connexion.
           </p>
           <p>
             <strong>Coach IA.</strong> Lorsque vous appuyez sur un bouton du Coach IA,
-            un résumé de vos statistiques d'entraînement récentes (meilleure portée,
+            un résumé des statistiques d'entraînement récentes — meilleure portée,
             précision récente par mode, nombre de rondes hebdomadaires et progression
-            Journey) est envoyé en HTTPS à notre service afin de générer une réponse
-            personnalisée. Les utilisateurs gratuits peuvent demander jusqu'à trois
-            conseils admissibles par jour UTC; les abonnés Coach+ reçoivent le service
-            étendu du Coach. Nous ne vendons pas ces données et ne les partageons pas
-            avec des annonceurs.
+            Journey — est envoyé en HTTPS à notre service afin de générer une réponse
+            personnalisée. Les comptes connectés reçoivent 10 conseils échantillons à
+            vie, avec au plus un échantillon réussi par jour UTC. Un achat unique du
+            Pack Coach ajoute 365 conseils achetés qui n'expirent pas. Les abonnés
+            existants conservent le service Coach déjà acheté. Les demandes échouées,
+            indisponibles, non prêtes, mises en cache ou remplacées par le résultat
+            déterministe n'utilisent aucun échantillon ni conseil acheté. Nous ne
+            vendons pas ces données et ne les partageons pas avec des annonceurs.
           </p>
           <p>
-            <strong>Mesure de Coach+.</strong> Pour comprendre si l'expérience gratuite
-            du Coach mène à Coach+, nous comptons quatre jalons : un conseil gratuit
-            généré avec succès, l'affichage de l'écran d'abonnement Coach+, le début
-            d'un achat et la fin d'un achat initial. L'application transmet un
-            identifiant utilisateur RevenueCat propre à l'application, une source
-            d'entrée provenant d'une liste restreinte et un identifiant d'événement
-            aléatoire avec les jalons d'affichage et de début d'achat. Le service
-            enregistre la réussite du conseil gratuit et n'enregistre l'achat complété
-            qu'à partir d'un événement RevenueCat de production authentifié.
+            <strong>Digit Span Lab.</strong> Lab est un déverrouillage permanent et
+            distinct de fonctions locales. Il ajoute des programmes personnalisés
+            enregistrés, des exercices locaux avancés, l'analyse de la position
+            sérielle et du temps de réponse, des comparaisons approfondies, des
+            objectifs locaux et un rapport local partageable. Lab n'inclut aucun
+            échantillon ni conseil acheté du Coach IA, et ses analyses et rapports ne
+            sont pas transmis au service du Coach IA.
           </p>
           <p>
-            Les marqueurs aléatoires utilisés pour éviter le double comptage expirent
-            après 32 jours. Une empreinte SHA-256 de l'identifiant RevenueCat et la
-            dernière source d'entrée sont conservées jusqu'à 14 jours afin d'attribuer
-            un achat complété. Les décomptes hebdomadaires sans identifiant, regroupés
-            par source, expirent après 400 jours. Ces rapports ne contiennent aucun
-            identifiant de compte, message ou réponse du Coach, statistique
-            d'entraînement, prix ou détail de produit, identifiant de transaction,
-            champ de profil Google ni donnée publicitaire.
+            Un droit Lab vérifié reste sur l'appareil lorsque vous vous déconnectez du
+            Coach, supprimez la mémoire infonuagique du Coach ou changez de compte
+            Coach facultatif. Si les renseignements RevenueCat courants sont
+            indisponibles ou appartiennent à un autre propriétaire d'achat,
+            l'application conserve le droit déjà vérifié. Un renseignement inactif
+            faisant autorité pour le même propriétaire d'achat d'origine, comme un
+            remboursement ou une révocation, reverrouille la création, la modification
+            et les exercices Lab. Il ne supprime pas les programmes enregistrés ni le
+            dernier rapport : ils demeurent lisibles localement et le rapport demeure
+            partageable. Free Core reste utilisable et les analyses premium ne sont
+            pas recalculées pendant le reverrouillage.
           </p>
           <p>
-            <strong>Facturation.</strong> Les abonnements Coach+ sont traités par
-            Google Play ; l'état de l'abonnement est synchronisé via RevenueCat
-            (voir la section Sous-traitants ci-dessous).
+            <strong>Enregistrements de sécurité des achats.</strong> L'application
+            conserve deux protections locales distinctes contre les achats en double.
+            L'enregistrement du Pack Coach contient l'identifiant du compte Coach
+            connecté, l'identifiant du produit, le solde Coach connu avant l'achat,
+            l'état de vérification et des horodatages. L'enregistrement de contrôle Lab
+            contient le produit Lab exact, des horodatages de vérification, des
+            barrières de génération/révision et une liaison au propriétaire d'achat
+            créée avec un espace de noms SHA-256 propre à Lab appliqué à l'identifiant
+            utilisateur d'origine de RevenueCat. L'enregistrement Lab ne stocke pas
+            l'identifiant RevenueCat ou Google brut. Aucun des deux enregistrements ne
+            contient de données de carte de paiement ni de transaction Google Play.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>Facturation et protections de Digit Span</h2>
+          <p>
+            Les achats de Digit Span Lab et du Pack Coach sont traités par Google Play
+            et gérés par RevenueCat. Lab utilise le nouveau produit non consommable
+            <code>digit_span_lab_lifetime</code> et le droit
+            <code>digit_span_lab</code>; il n'est pas déduit d'un ancien produit à vie
+            ou d'abonnement. Son prix localisé est fourni à l'exécution par Google Play
+            au moyen de RevenueCat. Le Pack Coach est un produit distinct et répétable
+            de 365 conseils, et les conseils achetés n'expirent pas. Un ancien
+            abonnement Coach existant reste géré selon les modalités déjà achetées.
           </p>
           <p>
-            <strong>Ce que nous ne collectons jamais et ne transmettons jamais :</strong>
-            contacts, photos, position, microphone, caméra, activité de navigation,
-            contenu d'autres applications.
+            Avant un achat du Pack Coach, l'application enregistre le solde Coach
+            courant faisant autorité. Elle déclare le Pack ajouté seulement lorsque
+            RevenueCat retourne un solde supérieur. Un résultat d'achat ou une mise à
+            jour de solde incertaine bloque un autre achat jusqu'à ce que le même
+            compte connecté vérifie de nouveau et que l'augmentation soit confirmée.
+            Si le compte Google ou RevenueCat change, le résultat périmé est ignoré et
+            le verrou du compte d'origine est conservé.
+          </p>
+          <p>
+            Avant d'ouvrir Google Play pour Lab, l'application enregistre durablement
+            un achat en attente lié au produit exact et à une empreinte du propriétaire.
+            Elle déclare Lab comme acheté seulement après que RevenueCat retourne le
+            droit actif exact et que le droit lié au propriétaire est enregistré puis
+            relu. Une annulation explicite efface la protection. Les erreurs réseau,
+            délais d'attente, changements de compte ou résultats incertains la
+            conservent et bloquent un autre achat Lab jusqu'à ce qu'une vérification du
+            même propriétaire ou l'action Restaurer l'achat Lab la résolve. L'achat et
+            la restauration de Lab ne nécessitent pas la connexion Google du Coach.
+          </p>
+          <p>
+            Tant que l'enregistrement Lab est non résolu ou illisible, l'application
+            empêche temporairement les changements de propriétaire RevenueCat, y
+            compris la liaison d'un achat Coach, la restauration Coach et la
+            déconnexion du Coach. L'utilisateur doit d'abord vérifier ou restaurer
+            Lab. Un enregistrement appartenant à un autre propriétaire reste bloqué
+            avec des indications de soutien au lieu d'être effacé par le propriétaire
+            courant.
+          </p>
+          <p>
+            <strong>Mesure du Pack Coach.</strong> Nous mesurons seulement quatre
+            jalons : la réussite d'un conseil échantillon, l'affichage de l'écran du
+            Pack Coach, le début d'un achat et la fin d'un achat. Les rapports
+            contiennent des décomptes regroupés par semaine ISO UTC et une petite liste
+            permise de sources d'entrée. Ils ne contiennent aucun message ou réponse
+            du Coach, statistique d'entraînement, prix de produit, identifiant de
+            transaction, donnée de profil Google ni donnée publicitaire. Les marqueurs
+            d'événement aléatoires expirent après 32 jours, l'attribution de source
+            d'achat hachée après 14 jours et les décomptes hebdomadaires agrégés sans
+            identifiant après 400 jours.
+          </p>
+          <p>
+            <strong>Appareil, permissions, exportation et sauvegarde.</strong> Digit
+            Span utilise le moteur de synthèse vocale de l'appareil et ne demande pas
+            l'accès au microphone ni n'enregistre la voix. L'accès Internet sert au
+            Coach IA et à la facturation; l'application ne demande pas les permissions
+            de position, contacts, caméra ou microphone. Le CSV importe et exporte
+            uniquement les rondes d'entraînement; il n'importe ni n'exporte jamais le
+            droit Lab, la protection d'achat, les programmes, objectifs, sessions ou
+            l'instantané de rapport. Le partage CSV et du rapport Lab utilise le menu
+            de partage du système et ne téléverse pas ces fichiers ni le texte du
+            rapport vers nos serveurs. La sauvegarde infonuagique Android et le
+            transfert d'appareil à appareil sont désactivés afin qu'une copie de
+            l'enregistrement local Lab ne puisse pas déverrouiller un autre appareil.
+            Sur un appareil nouveau ou effacé, utilisez Restaurer l'achat Lab pour une
+            nouvelle vérification Google Play et RevenueCat.
+          </p>
+          <p>
+            Digit Span Trainer s'adresse au grand public, y compris aux élèves. Nous
+            ne recueillons pas sciemment de données personnelles d'enfants. Nous ne
+            recueillons ni ne transmettons jamais les contacts, photos, position,
+            contenu du microphone ou de la caméra, activité de navigation ou contenu
+            d'autres applications.
           </p>
         </div>
 
         <div class="card" id="digit-span-data-deletion">
-          <h2>Suppression du compte et des données</h2>
+          <h2>Compte, conservation et suppression Digit Span</h2>
           <p>
-            Pour demander la suppression de votre identifiant de compte Digit Span
-            Trainer et des données hors appareil associées, écrivez à
+            Reset All Progress supprime les rondes, préférences, programmes Lab
+            enregistrés, objectifs, sessions actives et instantanés de rapport stockés
+            sur l'appareil. Cette action conserve le droit Lab vérifié et toute
+            protection non résolue contre un achat Lab ou Pack Coach en double. Une
+            protection Lab antérieure à la réinitialisation est isolée de son ancien
+            rappel et doit être vérifiée par le flux Restaurer l'achat Lab du
+            propriétaire courant. Désinstaller l'application ou effacer son stockage
+            système supprime les données locales, les droits et les enregistrements de
+            sécurité; les achats peuvent ensuite être restaurés depuis Google Play.
+          </p>
+          <p>
+            Les enregistrements opérationnels du Coach IA conservent le solde
+            d'échantillons à vie avec le compte de l'application; les données
+            d'allocation quotidienne, de protection contre la répétition, de réponses
+            terminées de courte durée et de contrôle des dépenses expirent ou sont
+            automatiquement élaguées. Une mémoire Coach limitée et glissante ainsi que
+            des droits peuvent être conservés plus longtemps pour la continuité et
+            l'accès acheté. RevenueCat conserve l'identifiant de facturation, le droit
+            Lab, le solde de conseils achetés et tout abonnement existant au besoin
+            pour la restauration et selon sa politique de conservation. L'identifiant
+            Google Sign-In est conservé pendant la connexion; si une vérification du
+            Pack Coach est non résolue, il reste dans l'enregistrement de sécurité
+            local jusqu'à une récupération faisant autorité ou l'effacement système
+            des données de l'application.
+          </p>
+          <p>
+            Pour demander la suppression des données hors appareil liées à votre
+            compte Digit Span Trainer, écrivez à
             <a href="mailto:pierdo.dev@gmail.com">pierdo.dev@gmail.com</a> avec
-            l'objet « Suppression des données Digit Span ».
+            l'objet « Suppression des données Digit Span ». Nous supprimerons ou
+            dissocierons l'identifiant Google Sign-In et les enregistrements connexes
+            du Coach IA sous notre contrôle. Les décomptes hebdomadaires sans
+            identifiant ne peuvent pas être reliés à un compte et expirent après
+            400 jours.
           </p>
           <p>
-            Nous supprimerons ou dissocierons l'identifiant Google Sign-In que nous
-            contrôlons, effacerons les enregistrements du Coach IA liés au compte et
-            toute attribution courante de la source d'achat Coach+ liée à cet
-            identifiant, puis supprimerons les enregistrements côté serveur connexes
-            sous notre contrôle. Les décomptes agrégés sans identifiant ne peuvent pas
-            être reliés à un compte et expirent après 400 jours. Les données
-            d'entraînement stockées sur l'appareil peuvent être supprimées en tout
-            temps avec l'action Reset All Progress dans l'application ou en
-            désinstallant l'application.
-          </p>
-          <p>
-            Certains registres d'abonnement et de paiement sont conservés par Google
-            Play et RevenueCat au besoin pour la facturation, la prévention de la
-            fraude, les taxes et les obligations légales. Supprimer les données du
-            compte dans l'application n'annule pas un abonnement Google Play actif;
-            gérez les abonnements dans Google Play.
+            Supprimer les données infonuagiques du Coach ou s'en déconnecter ne
+            supprime pas l'achat Lab indépendant géré par Google Play/RevenueCat ni
+            son droit local vérifié. Les demandes de suppression ou de remboursement
+            d'achat suivent les processus de Google Play ou RevenueCat. Certains
+            registres de facturation, de prévention de la fraude, de taxes et de
+            paiement exigés par la loi peuvent rester chez ces fournisseurs.
           </p>
         </div>
 
@@ -260,7 +373,7 @@
           <h2>Sous-traitants</h2>
           <p>
             Les services tiers suivants reçoivent des données limitées lorsque vous
-            utilisez le Coach IA ou la mesure Coach+ de Digit Span Trainer, le Coach
+            utilisez le Coach IA ou la mesure du Pack Coach de Digit Span Trainer, le Coach
             distant interne de Dial-In sur invitation, une connexion à une
             application compatible, ou un achat ou une restauration.
           </p>
@@ -268,9 +381,9 @@
             <li>
               <strong>Fireworks AI</strong> (États-Unis) — exécute le modèle d'IA
               qui génère les réponses du Coach de Digit Span Trainer. Reçoit le
-              résumé des statistiques d'entraînement et un identifiant utilisateur
-              propre à l'application au moment où vous appuyez sur un bouton du
-              Coach. Ne reçoit pas les données distinctes de la mesure Coach+.
+              résumé des statistiques d'entraînement au moment où vous appuyez sur un
+              bouton du Coach. Ne reçoit pas les données distinctes de la mesure du
+              Pack Coach et ne conserve pas l'entrée de génération de son côté.
             </li>
             <li>
               <strong>OpenRouter et Anthropic (candidat interne Dial-In)</strong> —
@@ -290,8 +403,12 @@
             <li>
               <strong>Cloudflare Workers, Durable Objects et KV</strong> — achemine
               les requêtes du Coach et applique les limites de débit. Digit Span
-              utilise les enregistrements existants décrits ci-dessus. L'essai interne
-              sur invitation de Dial-In utilise des Durable Objects distincts pour
+              stocke l'allocation d'échantillons à vie propre à l'application, des
+              enregistrements de courte durée pour les réponses terminées et la
+              protection contre la répétition, la protection des dépenses, l'état des
+              droits et une mémoire Coach limitée et glissante; il ne stocke pas
+              l'historique brut des rondes. L'essai interne sur invitation de Dial-In
+              utilise des Durable Objects distincts pour
               l'allocation pseudonyme, la session de courte durée, le plan en attente,
               le rapprochement, la protection des dépenses et l'audit minimal selon
               les périodes Dial-In ci-dessus; il ne stocke pas de mémoire du Coach
@@ -301,20 +418,28 @@
             </li>
             <li>
               <strong>Google Sign-In</strong> — vérifie l'identité uniquement lorsque
-              vous vous connectez explicitement à Digit Span Trainer ou choisissez
-              l'action interne Acheter ou Restaurer de Dial-In. Le service Dial-In
-              vérifie le jeton d'identité, utilise son sujet stable pour dériver des
-              identifiants opaques, puis supprime le jeton; il ne conserve pas les
-              champs de profil Google pour le Coach distant.
+              vous vous connectez explicitement au Coach IA de Digit Span Trainer ou
+              choisissez l'action interne Acheter ou Restaurer de Dial-In. Pour Digit
+              Span, Google peut fournir un identifiant de compte, une adresse courriel
+              et un nom d'affichage; les champs de profil sont affichés localement et
+              ne sont pas transmis au service du Coach ni à la mesure du Pack Coach.
+              Le service Dial-In vérifie le jeton d'identité, utilise son sujet stable
+              pour dériver des identifiants opaques, puis supprime le jeton; il ne
+              conserve pas les champs de profil Google pour le Coach distant.
             </li>
             <li>
               <strong>RevenueCat</strong> — gère l'état des abonnements et des achats
-              intégrés et transmet des événements d'achat authentifiés. Digit Span
-              utilise son propre identifiant utilisateur et le flux de mesure décrit
-              ci-dessus. Dial-In utilise un identifiant opaque distinct, dérivé par
-              son service, pour le solde, le débit, la restauration, le remboursement
-              et la révocation du Pack Coach interne à quantité limitée; le sujet
-              Google brut ne lui est pas transmis comme propriétaire.
+              intégrés et transmet des événements d'achat authentifiés. Pour Digit
+              Span, RevenueCat gère le droit Lab permanent, le solde de conseils Coach
+              achetés et l'état de l'ancien abonnement existant. Les événements
+              d'achat et de restauration Google Play sont associés à un identifiant
+              utilisateur RevenueCat; l'enregistrement de contrôle Lab local stocke
+              seulement une empreinte propre au produit de l'identifiant utilisateur
+              d'origine de RevenueCat, et non cet identifiant brut. Dial-In utilise un
+              identifiant opaque distinct, dérivé par son service, pour le solde, le
+              débit, la restauration, le remboursement et la révocation du Pack Coach
+              interne à quantité limitée; le sujet Google brut ne lui est pas transmis
+              comme propriétaire.
             </li>
           </ul>
         </div>
