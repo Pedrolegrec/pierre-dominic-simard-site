@@ -33,7 +33,7 @@
     <main class="wrap">
       <section class="hero">
         <h1 data-split="chars">Privacy policy</h1>
-        <p class="lead">Effective date: 2026-08-02</p>
+        <p class="lead">Effective date: 2026-08-10</p>
         <div class="cta">
           <a class="btn btn-ghost" href="./index.html">Back to site</a>
         </div>
@@ -86,78 +86,175 @@
           <h2>Digit Span Trainer</h2>
           <p>
             <strong>Local-only data.</strong> Training rounds, preferences, skin
-            unlocks, and tutorial progress are stored on your device and don't
-            leave it on their own.
+            unlocks, tutorial progress, saved Digit Span Lab programs, local goals,
+            active Lab drill progress, and the last generated Lab report snapshot
+            are stored on your device with IndexedDB. They do not leave the device
+            on their own.
           </p>
           <p>
-            <strong>Sign-in (optional).</strong> If you sign in with Google, we
-            receive a stable Google account identifier used to recognize you across
-            devices and associate purchases with your account. Google may also
-            provide your email address or display name. The app uses those profile
-            fields only on your device to show your signed-in state and does not send
-            them to the Coach backend or Coach+ measurement.
+            <strong>Sign-in is optional for local features.</strong> Google sign-in
+            is not required for Free Core training, Stats, themes, CSV, or Digit Span
+            Lab purchase and restore controls. Google Play still requires a Google
+            Play account to buy or restore Lab. Coach Google sign-in is required only
+            for AI Coach, so lifetime samples and purchased Coach insights stay with
+            the correct Coach account. Google may provide a stable account identifier,
+            email address, and display name. The profile fields are shown locally;
+            they are not sent to the Coach backend or included in Coach Pack
+            measurement. A short-lived identity token is sent to the Coach backend
+            for verification when you sign in.
           </p>
           <p>
             <strong>AI Coach.</strong> When you tap an AI Coach button, a digest of
-            your recent training statistics (best span, recent accuracy per mode,
-            weekly round counts, and Journey progress) is sent over HTTPS to our
-            backend to generate a personalized response. Free users can request up
-            to three readiness-qualified insights per UTC day; Coach+ subscribers
-            receive the expanded Coach service. We don't sell this data or share it
-            with advertisers.
+            recent training statistics—best span, recent accuracy per mode, weekly
+            round counts, and Journey progress—is sent over HTTPS to our backend to
+            generate a personalized response. Signed-in accounts receive 10 lifetime
+            sample insights, with at most one successful sample per UTC day. A
+            one-time Coach Pack adds 365 non-expiring purchased insights. Existing
+            subscribers retain the Coach service they already purchased. Failed,
+            unavailable, not-ready, cached, and deterministic-fallback requests do
+            not use a sample or purchased insight. We do not sell this data or share
+            it with advertisers.
           </p>
           <p>
-            <strong>Coach+ measurement.</strong> To understand whether the free Coach
-            experience leads people to Coach+, we count four milestones: a free
-            insight succeeded, the Coach+ subscription screen was viewed, a purchase
-            was started, and an initial purchase was completed. The app sends a
-            RevenueCat app user identifier, an allowlisted entry source, and a random
-            event identifier with paywall-view and purchase-start milestones. The
-            backend records free-insight success and records purchase completion only
-            from an authenticated production RevenueCat event.
+            <strong>Digit Span Lab.</strong> Lab is a separate permanent local-feature
+            unlock. It adds saved custom programs, advanced local drills,
+            serial-position and response-time analysis, deeper comparisons, local
+            goals, and a shareable local report. Lab includes no AI Coach samples or
+            purchased Coach insights, and Lab analytics and reports are not sent to
+            the AI Coach backend.
           </p>
           <p>
-            Random event markers used to prevent duplicate counting expire after 32
-            days. A SHA-256 hash of the RevenueCat user identifier and the latest
-            entry source is retained for up to 14 days to attribute a completed
-            purchase. Identifier-free weekly counts by source expire after 400 days.
-            These reports do not contain account identifiers, Coach prompts or
-            responses, training statistics, prices or product details, transaction
-            identifiers, Google profile fields, or advertising data.
+            A verified Lab grant remains on the device when you sign out of Coach,
+            delete Coach cloud memory, or change the optional Coach account. If
+            current RevenueCat information is unavailable or belongs to a different
+            purchase owner, the app preserves an already verified grant.
+            Authoritative inactive information for the same original purchase owner,
+            such as a refund or revocation, relocks Lab creation, editing, and drills.
+            It does not delete saved programs or the last saved report: those remain
+            locally readable and the report remains shareable. Free Core remains
+            usable, and premium analytics are not recomputed while Lab is relocked.
           </p>
           <p>
-            <strong>Billing.</strong> Coach+ subscriptions are processed by Google
-            Play; subscription state is mirrored through RevenueCat (see
-            sub-processors below).
+            <strong>Purchase-safety records.</strong> The app keeps two separate local
+            duplicate-charge safeguards. A Coach Pack record contains the signed-in
+            Coach account identifier, product identifier, known pre-purchase Coach
+            balance, verification status, and timestamps. The Lab control record
+            contains the exact Lab product, verification timestamps,
+            generation/revision fences, and a purchase-owner binding made with a
+            Lab-specific SHA-256 namespace over RevenueCat's original app-user ID.
+            The Lab record does not store the raw RevenueCat or Google identifier.
+            Neither record contains payment-card or Google Play transaction data.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>Digit Span billing and safeguards</h2>
+          <p>
+            Digit Span Lab and Coach Pack purchases are processed by Google Play and
+            managed through RevenueCat. Lab uses the fresh non-consumable product
+            <code>digit_span_lab_lifetime</code> and entitlement
+            <code>digit_span_lab</code>; it is not inferred from an older lifetime or
+            subscription product. Its localized price is supplied at runtime by
+            Google Play through RevenueCat. Coach Pack is the separate, repeatable
+            365-insight product, and purchased insights do not expire. An existing
+            legacy Coach subscription remains managed on the terms already purchased.
           </p>
           <p>
-            <strong>What we never collect or transmit:</strong> contacts, photos,
-            location, microphone, camera, browsing activity, contents of other apps.
+            Before a Coach Pack purchase, the app records the current authoritative
+            Coach balance. It reports a pack as added only after RevenueCat returns a
+            higher balance. An uncertain purchase result or balance refresh blocks
+            another purchase until the same signed-in account checks again and the
+            increase is confirmed. If the Google or RevenueCat account changes, the
+            stale result is ignored and the original account's lock is retained.
+          </p>
+          <p>
+            Before opening Google Play for Lab, the app durably saves an exact-product,
+            hashed-owner pending record. It reports Lab as owned only after RevenueCat
+            returns the exact active entitlement and the owner-bound grant is saved
+            and read back. Explicit cancellation clears the guard. Network errors,
+            timeouts, account changes, or uncertain results retain it and block
+            another Lab purchase until an authoritative same-owner check or Restore
+            Lab purchase resolves it. Lab purchase and restore do not require Coach
+            Google sign-in.
+          </p>
+          <p>
+            While the Lab record is unresolved or unreadable, the app temporarily
+            prevents RevenueCat owner changes, including Coach purchase linking,
+            Coach restore, and Coach sign-out. The user is directed to Check or
+            Restore Lab first. A record from a different owner remains blocked with
+            support guidance rather than being cleared by the current owner.
+          </p>
+          <p>
+            <strong>Coach Pack measurement.</strong> We measure only four milestones:
+            a sample insight succeeded, the Coach Pack screen was viewed, a purchase
+            was started, and a purchase was completed. Reports contain event counts
+            grouped by UTC ISO week and a small allowlist of entry sources. They do
+            not contain Coach prompts or responses, training statistics, product
+            prices, transaction identifiers, Google profile data, or advertising
+            data. Random event markers expire after 32 days, hashed purchase-source
+            attribution after 14 days, and identifier-free weekly aggregate counts
+            after 400 days.
+          </p>
+          <p>
+            <strong>Device, permissions, export, and backup.</strong> Digit Span uses
+            the device text-to-speech engine and does not request microphone access or
+            record voice input. It uses Internet access for AI Coach and billing and
+            does not request location, contacts, camera, or microphone permissions.
+            CSV imports and exports training rounds only; it never imports or exports
+            the Lab grant, purchase guard, programs, goals, sessions, or report
+            snapshot. CSV and Lab report sharing use the system share sheet and do not
+            upload those files or report text to our servers. Android cloud backup and
+            device-to-device transfer are disabled so a local Lab grant/control record
+            cannot unlock another device by being copied. On a new or cleared device,
+            use Restore Lab purchase for a fresh Google Play and RevenueCat check.
+          </p>
+          <p>
+            Digit Span Trainer is intended for general audiences, including students.
+            We do not knowingly collect personal data from children. We never collect
+            or transmit contacts, photos, location, microphone or camera content,
+            browsing activity, or the contents of other apps.
           </p>
         </div>
 
         <div class="card" id="digit-span-data-deletion">
-          <h2>Account and data deletion</h2>
+          <h2>Digit Span account, retention, and deletion</h2>
           <p>
-            To request deletion of your Digit Span Trainer account identifier and
-            associated off-device data, email
+            Reset All Progress deletes on-device rounds, preferences, saved Lab
+            programs, goals, active sessions, and report snapshots. It preserves the
+            verified Lab grant and any unresolved Lab or Coach Pack duplicate-charge
+            guard. A Lab guard from before Reset is fenced from its old callback and
+            must be checked through the current-owner Restore Lab flow. Uninstalling
+            the app or clearing its system storage removes local data, grants, and
+            safety records; purchases can then be restored from Google Play.
+          </p>
+          <p>
+            AI Coach operational records keep the lifetime sample balance with the
+            app account; daily allowance, replay-protection, short-lived completed
+            response, and spend records expire or are pruned automatically. Limited
+            rolling Coach-memory and entitlement records may be retained longer for
+            continuity and purchased access. RevenueCat retains the billing identifier,
+            Lab entitlement, purchased insight balance, and any existing subscription
+            as needed for restoration and under its retention policy. A Google
+            Sign-In identifier is retained while you remain signed in; if Coach Pack
+            verification is unresolved, that account identifier remains in the local
+            safety record until authoritative recovery or system-level app-data
+            removal.
+          </p>
+          <p>
+            To request deletion of off-device data tied to your Digit Span Trainer
+            account, email
             <a href="mailto:pierdo.dev@gmail.com">pierdo.dev@gmail.com</a> with the
-            subject "Digit Span data deletion".
+            subject "Digit Span data deletion". We will delete or disassociate the
+            Google Sign-In identifier and related AI Coach records under our control.
+            Identifier-free weekly measurement counts cannot be linked back to an
+            account and expire after 400 days.
           </p>
           <p>
-            We will delete or disassociate the Google Sign-In identifier we control,
-            clear account-linked AI Coach records and any current Coach+ purchase-source
-            attribution tied to that identifier, and remove related server-side
-            records under our control. Identifier-free aggregate counts cannot be
-            linked back to an account and expire after 400 days. On-device training
-            data can be deleted at any time by using Reset All Progress in the app
-            or uninstalling the app.
-          </p>
-          <p>
-            Some subscription and payment records are retained by Google Play and
-            RevenueCat as required for billing, fraud prevention, tax, and legal
-            compliance. Cancelling or deleting app account data does not cancel an
-            active Google Play subscription; manage subscriptions in Google Play.
+            Deleting Coach cloud data or signing out of Coach does not delete the
+            independent Google Play/RevenueCat Lab purchase or its local verified
+            grant. Google Play or RevenueCat purchase deletion and refund requests
+            follow those providers' processes. Some billing, fraud-prevention, tax,
+            and legally required payment records may remain with those providers.
           </p>
         </div>
 
@@ -240,7 +337,7 @@
           <h2>Sub-processors</h2>
           <p>
             The following third-party services receive limited data when you use
-            Digit Span Trainer's AI Coach or Coach+ measurement, use Dial-In's
+            Digit Span Trainer's AI Coach or Coach Pack measurement, use Dial-In's
             invited Internal Remote Coach, sign in to a supported app, or make or
             restore purchases.
           </p>
@@ -248,9 +345,9 @@
             <li>
               <strong>Fireworks AI</strong> (United States) — runs the AI model that
               generates Digit Span Trainer Coach responses. Receives the training
-              statistics digest and an app-scoped user identifier at the time of
-              each Coach tap. It does not receive the separate Coach+ measurement
-              payload.
+              statistics digest at the time of each Coach tap. It does not receive
+              the separate Coach Pack measurement payload and does not persist the
+              generation input on its side.
             </li>
             <li>
               <strong>OpenRouter and Anthropic (Dial-In Internal candidate)</strong>
@@ -266,8 +363,11 @@
             </li>
             <li>
               <strong>Cloudflare Workers, Durable Objects, and KV</strong> — routes
-              and rate-limits Coach requests. Digit Span uses the existing records
-              described above. Dial-In's invited Internal pilot uses separate Durable
+              and rate-limits Coach requests. Digit Span stores app-scoped lifetime
+              sample allowance, short-lived request-completion and replay-protection
+              records, spend protection, entitlement state, and limited rolling Coach
+              memory; it does not store raw round history. Dial-In's invited Internal
+              pilot uses separate Durable
               Objects for pseudonymous allowance, short-lived session, pending-plan,
               reconciliation, spend-protection, and minimal audit state under the
               Dial-In retention periods above; it does not store server-side Coach
@@ -276,16 +376,23 @@
             </li>
             <li>
               <strong>Google Sign-In</strong> — verifies identity only when you
-              explicitly sign in to Digit Span Trainer or choose Dial-In's Internal
-              Buy or Restore action. Dial-In's service verifies the ID token, uses its
-              stable subject to derive opaque service identifiers, and discards the
-              token; it does not retain Google profile fields for Remote Coach.
+              explicitly sign in to Digit Span Trainer's AI Coach or choose Dial-In's
+              Internal Buy or Restore action. For Digit Span, Google may provide an
+              account identifier, email address, and display name; profile fields are
+              shown locally and are not sent to the Coach backend or Coach Pack
+              measurement. Dial-In's service verifies the ID token, uses its stable
+              subject to derive opaque service identifiers, and discards the token; it
+              does not retain Google profile fields for Remote Coach.
             </li>
             <li>
               <strong>RevenueCat</strong> — manages subscription and in-app purchase
-              state and sends authenticated purchase events. Digit Span uses its own
-              app user identifier and measurement flow described above. Dial-In uses
-              a separate service-derived opaque user ID for finite Internal Coach Pack
+              state and sends authenticated purchase events. For Digit Span, it
+              manages the permanent Lab entitlement, purchased Coach insight balance,
+              and existing legacy subscription state. Google Play purchase and restore
+              events are associated with a RevenueCat app-user identifier; the app's
+              local Lab control record stores only a product-specific hash of
+              RevenueCat's original app-user ID, not that raw ID. Dial-In uses a
+              separate service-derived opaque user ID for finite Internal Coach Pack
               balance, debit, restoration, refund, and revocation reconciliation; it
               does not give RevenueCat the raw Google subject as that owner.
             </li>
