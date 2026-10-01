@@ -1,18 +1,13 @@
 # pierre-dominic-simard-site
 
-Simple static site used as a stable web presence + privacy policy URL for
-D-U-N-S and Google Play onboarding.
+Bilingual identity page for Pierre-Dominic Simard, entreprise individuelle
+(sole proprietorship) in Québec, published with GitHub Pages at
+https://pedrolegrec.github.io/pierre-dominic-simard-site/ (French at the root,
+English under `en/`).
 
-## Setup
+The apps, their privacy policies and support are on https://pierdo.net.
+`privacy.html` and `en/privacy.html` stay at their old addresses and point
+earlier privacy-policy links to the matching pages there.
 
-1. Edit `index.html` and `privacy.html`
-   - Replace `YOUR_EMAIL_HERE` with your public contact email.
-2. Enable GitHub Pages
-   - Repo Settings -> Pages
-   - Deploy from branch: `main` / `(root)`
-
-## URLs
-
-- Site: `https://<github-username>.github.io/pierre-dominic-simard-site/`
-- Privacy policy:
-  `https://<github-username>.github.io/pierre-dominic-simard-site/privacy.html`
+GitHub Pages publishes the `main` branch from the root folder. There is no
+build step.
